@@ -1,9 +1,8 @@
 
 Notes on Formal Methods - CSC465/CSC2104
 ========================================
-i.e. fun times with formal logic.
-
-===
+i.e. Fun times with formal logic.
+We assume familiarity with mathematical logic. (see Enderton's text).
 'Binary' Theory
 ===
 ===== "Binary Expressions" same as 'logical expressions'.
@@ -93,8 +92,6 @@ Let X be a binary expression (could be atomic, or molecular)
 					occurence of this expression in a sentence, it must always retain
 					this assigned truth value.
 					
-
-===
 
 "Bunch" Theory
 ===
