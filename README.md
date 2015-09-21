@@ -1,9 +1,11 @@
 
 Notes on Formal Methods - CSC465/CSC2104
 ========================================
+i.e. fun times with formal logic.
 
 ===
 'Binary' Theory
+===
 ===== "Binary Expressions" same as 'logical expressions'.
 		i.e. they can be atomic formulas/sentences, or built up using
 		atomic formulas/sentences to make molecular formulas.
@@ -95,6 +97,7 @@ Let X be a binary expression (could be atomic, or molecular)
 ===
 
 "Bunch" Theory
+===
 ===== a collection of objects. unpackaged, unindexed.
 
 	Note - "package" just means set. hence a bunch would be the singletons of some
