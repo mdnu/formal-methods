@@ -94,13 +94,19 @@ Let X be a binary expression (could be atomic, or molecular)
 					this assigned truth value.
 					
 
-"Bunch" Theory
+'Bunch' Theory
 ===
 ===== a collection of objects. unpackaged, unindexed.
-
+	This is the 'simplest' data structure in our language.
+	
 	Note - "package" just means set. hence a bunch would be the singletons of some
-	"package" set without regard for the set.
-	any number, character, binary value or set is an 'elementary bunch'/'element'.
+	"package" set without regard for the set. Equivalently, and in being formal, we
+	could consuder bunches simply as elements in our language that are not contained
+	in a set. In mathematics, you'd normally consider every object to be contained in
+	some set, or objects being defined as some set with some properties. In our present
+	context, we'll have to abandon this notion and adopt a formalist perspective.
+	
+	Any number, character, binary value or set is an 'elementary bunch'/'element'.
 
 	Unions of bunches is represented by a comma:
 		A,B is the bunch of elements from A or B.
@@ -183,3 +189,26 @@ An added convention:
 
 Meta-Properties of "Bunch" Theory.
 
+Most operators distribute over bunches. 
+example: -(1,3,7) = -1,-3, -7. 
+
+Bunches under the binary operation + has the sum operation behave like multiplication
+over the parentheses. i.e:
+	
+	(1,2) + (10,20) = 11, 12, 21, 22.
+	(1,2) + 10 = 11, 12
+	1 + 10 = 11
+	null + 10 = null
+	
+Notice above that null behaves like '0' under '+' behaving like multiplication. 
+The only case that stands out is the third, where + actually does behave like addition
+that's because the 'bunches' here are singleton sets. To illustrate, let's perform
+the analogous operation: (1,0)+(10,0) = 11,0,0,0. Simplify and you'll get 1+10=11.
+
+Distributivity lets us define sets rather nicely:
+
+	nat+2 = 2,3,4,5,6,...
+	nat×2 = 0,2,4,6,8,...
+	nat^2 = 0,1,4,9,16,...
+	2^nat = 1,2,4,8,16,...
+	
