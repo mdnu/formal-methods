@@ -168,12 +168,9 @@ recall that any relation that is reflexive, transitive
 and antisymmetric is called a 'partial-ordering', or 'ordering'.
 	
 	¢x = 1 							- size
-	
 	¢(A,B) + ¢(A'B) = ¢(A)+¢(B)		- size
-	
 	¬x:A ⇒ ¢(A'x)=0					- size
-	
-	A:B ⇒ ¢A ≤ ¢B
+	A:B ⇒ ¢A ≤ ¢B					
 	
 again, these are all trivial.
 	
