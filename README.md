@@ -34,8 +34,8 @@ Some new material having to do with these operators:
 	
 	Recall that we called T "top" and ⊥ "bottom". If we remember our truth tables,
 	we'd see that ∧ gives the minimum of two operands, and ∨ gives the maximum.
-	See: T∧⊥, ⊥∧T and ⊥∧⊥ will always evaluate to ⊥, while ⊥∨⊥ is the only case for 
-	this operator which evaluates to ⊥ (in all other cases, we evaluate to T). 
+	See: T∧⊥, ⊥∧T and ⊥∧⊥ will always evaluate to ⊥, while ⊥∨⊥ is the only case 
+	for this operator which evaluates to ⊥ (in all other cases, we evaluate to T). 
 	So our convention's use becomes obvious.
 
 	Likewise, we may also show that ⇒ forms a partial ordering on our operands:
@@ -43,10 +43,10 @@ Some new material having to do with these operators:
 	(a⇒b)∧(b⇒a) = (a=b) (antisymmetric) and (a⇒b)∧(b⇒c)⇒(a⇒c) (transitive).
 	
 	The convention we introduce here is that "a⇒b" in terms of the ordering may
-	be interpreted as "a is stronger than or equal to b". Likewise, (a⇐b) interprets as
-	"a is weaker than or equal to b". Conveniently, the "⇐" looks like "<=" i.e. ≤ in
-	most programming languages, so the interpretation seems natural.
-	
+	be interpreted as "a is stronger than or equal to b". Likewise, (a⇐b) interprets 
+	as "a is weaker than or equal to b". 
+	Conveniently, the "⇐" looks like "<=" i.e. ≤ in most programming languages, 
+	so the interpretation seems natural.
 	
 We'll soon make much use of this notion of "strength/weakness" w.r.t. operands, when we
 introduce "monotonicity" and "antimonotonicity".
