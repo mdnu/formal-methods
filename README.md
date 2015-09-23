@@ -30,7 +30,7 @@ We should know all the truth tables by hand at this point.
 It would be useful to review "logic with trees" by Howson for a convenient
 shorthand way to parse truth values for molecular formulas using trees.
 
-Some new material having to do with these operators:
+- Some new material having to do with these operators:
 	
 	Recall that we called T "top" and ⊥ "bottom". If we remember our truth tables,
 	we'd see that ∧ gives the minimum of two operands, and ∨ gives the maximum.
@@ -66,7 +66,7 @@ We introduce our method of deduction. (here, we call it 'proof rules').
 We only have five rules, from which we can determine whether an expression is a theorem
 or an antitheorem. 
 
-Let X be a binary expression (could be atomic, or molecular)
+- Let X be a binary expression (could be atomic, or molecular)
 
 	1. Axiom Rule (Trivial) - If X is an axiom, then it is a theorem.
 				i.e. sentences we specify in our language as axioms are
@@ -164,7 +164,7 @@ this is all basic set theory.
 	A:B ∧ B:A = A=B					- antisymmetry
 	A:B ∧ B:C ⇒ A:C					- transitivity
 	
-- recall that any relation that is reflexive, transitive
+recall that any relation that is reflexive, transitive
 and antisymmetric is called a 'partial-ordering', or 'ordering'.
 	
 	¢x = 1 							- size
