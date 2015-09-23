@@ -34,9 +34,9 @@ Some new material having to do with these operators:
 	
 	Recall that we called T "top" and ⊥ "bottom". If we remember our truth tables,
 	we'd see that ∧ gives the minimum of two operands, and ∨ gives the maximum.
-	See: T∧⊥, ⊥∧T and ⊥∧⊥ will always evaluate to ⊥, while ⊥∨⊥ is the only case for this
-	operator which evaluates to ⊥ (in all other cases, we evaluate to T). So our convention
-	becomes obvious.
+	See: T∧⊥, ⊥∧T and ⊥∧⊥ will always evaluate to ⊥, while ⊥∨⊥ is the only case for 
+	this operator which evaluates to ⊥ (in all other cases, we evaluate to T). 
+	So our convention's use becomes obvious.
 
 	Likewise, we may also show that ⇒ forms a partial ordering on our operands:
 	Indeed, if a,b,c are any operands, we have that a⇒a, (reflexivity),
