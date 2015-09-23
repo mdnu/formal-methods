@@ -10,39 +10,39 @@ We assume familiarity with mathematical logic. (see Enderton's text).
 		i.e. they can be atomic formulas/sentences, or built up using
 		atomic formulas/sentences to make molecular formulas.
 
-'Theorems' are 'Tautologies'.
-'Antitheorems' are 'Contradictions'.
+	'Theorems' are 'Tautologies'.
+	'Antitheorems' are 'Contradictions'.
 
-Here, we define two special atomic formulas, T and ⊥ which are mapped via their 
-truth functions to 'Truth and 'Falsity' respectively. Hence, in our language, 
-T is our universal 'theorem' and ⊥ is our universal 'antitheorem'.
+	Here, we define two special atomic formulas, T and ⊥ which are mapped via their 
+	truth functions to 'Truth and 'Falsity' respectively. Hence, in our language, 
+	T is our universal 'theorem' and ⊥ is our universal 'antitheorem'.
 
-We also employ the following convention:
-First, we may call T "top" and ⊥ "bottom". This is independent of
-an "application area" - i.e. a model (recall that a model is an interpretation
-of the semantic meaning of sentences in a logical structure). 
+	We also employ the following convention:
+	First, we may call T "top" and ⊥ "bottom". This is independent of
+	an "application area" - i.e. a model (recall that a model is an interpretation
+	of the semantic meaning of sentences in a logical structure). 
 
-Our logical connectives are ∧ ∨ ⇒ ⇐ = and !=. 
-(i.e. two-operand binary operators). with a one-operand binary operator ¬.
+	Our logical connectives are ∧ ∨ ⇒ ⇐ = and !=. 
+	(i.e. two-operand binary operators). with a one-operand binary operator ¬.
 
-We should know all the truth tables by hand at this point.
-It would be useful to review "logic with trees" by Howson for a convenient
-shorthand way to parse truth values for molecular formulas using trees.
+	We should know all the truth tables by hand at this point.
+	It would be useful to review "logic with trees" by Howson for a convenient
+	shorthand way to parse truth values for molecular formulas using trees.
 
-In our formal language (let's call it FM), we employ parentheses simplification
-using a precedence table for the connectives. (we don't do this in mathematical logic).
-This is extremely annoying, but whatever. The precedence table is in the text.
+	In our formal language (let's call it FM), we employ parentheses simplification
+	using a precedence table for the connectives. (we don't do this in mathematical logic).
+	This is extremely annoying, but whatever. The precedence table is in the text.
 
-A theory (i.e, a model) is consistent iff no binary expression is both a theorem
-and an antitheorem. i.e. it says that a theory is consistent (has no contradictions).
+	A theory (i.e, a model) is consistent iff no binary expression is both a theorem
+	and an antitheorem. i.e. it says that a theory is consistent (has no contradictions).
 
-A theory is complete iff every 'fully instantiated binary expression' is either
-a theorem or an antitheorem. This is the same as the completeness theorem in 
-standard logic. i.e. Every logically valid formula in our model has a finite deduction.
+	A theory is complete iff every 'fully instantiated binary expression' is either
+	a theorem or an antitheorem. This is the same as the completeness theorem in 
+	standard logic. i.e. Every logically valid formula in our model has a finite deduction.
 
-We introduce our method of deduction. (here, we call it 'proof rules').
-We only have five rules, from which we can determine whether an expression is a theorem
-or an antitheorem. 
+	We introduce our method of deduction. (here, we call it 'proof rules').
+	We only have five rules, from which we can determine whether an expression is a theorem
+	or an antitheorem. 
 
 Let X be a binary expression (could be atomic, or molecular)
 
@@ -94,6 +94,8 @@ Let X be a binary expression (could be atomic, or molecular)
 					this assigned truth value.
 					
 
+					
+===
 'Bunch' Theory
 ===
 ===== a collection of objects. unpackaged, unindexed.
@@ -202,7 +204,7 @@ over the parentheses. i.e:
 	
 Notice above that null behaves like '0' under '+' behaving like multiplication. 
 The only case that stands out is the third, where + actually does behave like addition
-that's because the 'bunches' here are singleton sets. To illustrate, let's perform
+that's because the 'bunches' here are singletons. To illustrate, let's perform
 the analogous operation: (1,0)+(10,0) = 11,0,0,0. Simplify and you'll get 1+10=11.
 
 Distributivity lets us define sets rather nicely:
