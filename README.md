@@ -20,7 +20,8 @@ T is our universal 'theorem' and ⊥ is our universal 'antitheorem'.
 We also employ the following convention:
 First, we may call T "top" and ⊥ "bottom". This is independent of
 an "application area" - i.e. a model (recall that a model is an interpretation
-of the semantic meaning of sentences in a logical structure). 
+of the semantic meaning of sentences in a logical structure). We'll see why this
+is useful below. 
 
 	Our logical connectives are ∧ ∨ ⇒ ⇐ = and !=. 
 	(i.e. two-operand binary operators). with a one-operand binary operator ¬.
@@ -29,6 +30,27 @@ We should know all the truth tables by hand at this point.
 It would be useful to review "logic with trees" by Howson for a convenient
 shorthand way to parse truth values for molecular formulas using trees.
 
+Some new material having to do with these operators:
+	
+	Recall that we called T "top" and ⊥ "bottom". If we remember our truth tables,
+	we'd see that ∧ gives the minimum of two operands, and ∨ gives the maximum.
+	See: T∧⊥, ⊥∧T and ⊥∧⊥ will always evaluate to ⊥, while ⊥∨⊥ is the only case for this
+	operator which evaluates to ⊥ (in all other cases, we evaluate to T). So our convention
+	becomes obvious.
+
+	Likewise, we may also show that ⇒ forms a partial ordering on our operands:
+	Indeed, if a,b,c are any operands, we have that a⇒a, (reflexivity),
+	(a⇒b)∧(b⇒a) = (a=b) (antisymmetric) and (a⇒b)∧(b⇒c)⇒(a⇒c) (transitive).
+	
+	The convention we introduce here is that "a⇒b" in terms of the ordering may
+	be interpreted as "a is stronger than or equal to b". Likewise, (a⇐b) interprets as
+	"a is weaker than or equal to b". Conveniently, the "⇐" looks like "<=" i.e. ≤ in
+	most programming languages, so the interpretation seems natural.
+	
+	
+We'll soon make much use of this notion of "strength/weakness" w.r.t. operands, when we
+introduce "monotonicity" and "antimonotonicity".
+	
 In our formal language (let's call it FM), we employ parentheses simplification
 using a precedence table for the connectives. (we don't do this in mathematical logic).
 This is extremely annoying, but whatever. The precedence table is in the text.
