@@ -58,7 +58,10 @@ Exercises are found on page 154 and onwards.
 		≡	(b∧c∧P)v((¬bv¬c)∧Q) 		Duality
 		≡	(b∧c∧P)v((¬b∧Q)v(¬c∧Q)) 	Distribution
 		≡	(b∧(c∧P))v((¬c∧Q)v(¬b∧Q)) 	Associative
-		≡	
+		≡	(b∧(c∧P))v(((¬c∧Q)∧¬(¬b∧Q))v(¬b∧Q))	Context (changing (¬c∧Q), we assume ¬(¬b∧Q))
+		≡	(b∧(c∧P))v(((¬c∧Q)∧(bvQ))v(¬b∧Q))	Duality
+		≡	(b∧(c∧P))v(((b∧¬c∧Q)v(Q∧¬c∧Q))v(¬b∧Q))	Distribution
+		≡	(b∧(c∧P))v(((b∧¬c∧Q)v(¬c∧Q))v(¬b∧Q))
 		
 5 - Complete the following laws of Binary Theory 
 	by adding a right side using only the following symbols (in any quantity)
