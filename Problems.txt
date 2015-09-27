@@ -39,23 +39,23 @@ Exercises are found on page 154 and onwards.
 		≡	(a=(b=b)≠c) v a=c v b=c		Associative.
 		≡	(a=T)≠c v a=c v b=c		Reflexive.
 		≡	(a≠c) v a=c v b=c 		Context.
-		≡	(a≠c) v a=c v ⊥ 	Context.
+		≡	(a≠c) v a=c v ⊥ 		Context.
 		≡	T
 	
 	(s) - a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
 	
 			a⇒a∧b
-		≡	a⇒b		Discharge.
+		≡	a⇒b			Discharge.
 		≡	a⇒b ∧ T		Context.
 		≡	a⇒b ∧ (b⇒b)		Reflexive.
-		≡	a∧b ⇒ b∧b 	Conflation.
+		≡	a∧b ⇒ b∧b 		Conflation.
 		≡	a∧b ⇒ b		Idempotent.
 		
 	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
 	
 			if b∧c then P else Q fi
-		≡	(b∧c∧P)v(¬(b∧c)∧Q) 	Case Analysis.
-		≡	(b∧c∧P)v((¬bv¬c)∧Q) 	Duality
+		≡	(b∧c∧P)v(¬(b∧c)∧Q) 		Case Analysis.
+		≡	(b∧c∧P)v((¬bv¬c)∧Q) 		Duality
 		≡	(b∧c∧P)v((¬b∧Q)v(¬c∧Q)) 	Distribution
 		≡	(b∧(c∧P))v((¬c∧Q)v(¬b∧Q)) 	Associative
 		≡	
