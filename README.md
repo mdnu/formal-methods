@@ -35,15 +35,15 @@ shorthand way to parse truth values for molecular formulas using trees.
 
 For completion, the truth table used is this:
 
-				| TT | T⊥ | ⊥T | ⊥⊥|
-			-------------------------
-			| ∧|    T|   ⊥|  ⊥|   ⊥|
-			| ∨|    T|   T|   T|   ⊥|
-			| ⇒|    T|   ⊥|   T|   T|
-			| ⇐|     T|   T|   ⊥|   T|
-			| = |   T|   ⊥|   ⊥|   T|
-			| ≠ |   ⊥|   T|   T|   ⊥|
-			-------------------------
+		| TT | T⊥ | ⊥T | ⊥⊥|
+	---------------------------
+	| ∧|    T|   ⊥|  ⊥|   ⊥|
+	| ∨|    T|   T|   T|   ⊥|
+	| ⇒|    T|   ⊥|   T|   T|
+	| ⇐|     T|   T|   ⊥|   T|
+	| = |   T|   ⊥|   ⊥|   T|
+	| ≠ |   ⊥|   T|   T|   ⊥|
+	---------------------------
 
 and we introduce the conditional composition:
 
@@ -272,9 +272,9 @@ a mixture of both. Example:
 
 	Proving the first Law of Conflation: (a⇒b)∧(c⇒d) ⇒ a∧c⇒b∧d
 
-		a∧c⇒b∧d												distribute ⇒ over second ∧
-	≡	(a∧c⇒b)∧(a∧c⇒d)										antidistribution twice
-	≡	((a⇒b)v(c⇒d))∧((a⇒d)v(c⇒d))							distribute ∧ over v twice
+		a∧c⇒b∧d											distribute ⇒ over second ∧
+	≡	(a∧c⇒b)∧(a∧c⇒d)									antidistribution twice
+	≡	((a⇒b)v(c⇒d))∧((a⇒d)v(c⇒d))						distribute ∧ over v twice
 	≡	(a⇒b)∧(a⇒d)v(a⇒d)∧(c⇒d)v(c⇒b)∧(a⇒d)v(c⇒b)∧(c⇒d)		generalization
 	⇐ 	(a⇒b)∧(c⇒d)
 	
