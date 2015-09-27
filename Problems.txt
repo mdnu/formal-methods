@@ -3,33 +3,62 @@ Exercises
 0, 2fmpsu, 5, 12, 16, -sat
 41,44,53,55,63		  -sun
 uses chapters 1: 10-21, and chapter 3: 30-41.
+Exercises are found on page 154 and onwards.
 
 0 - There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
 	Each card has a letter on one side and a digit on the other. Which card(s) do you need
 	to turn over to determine whether every card with a D on one side has a 3 on the other? Why?
+	
+		We first need to check the first card with a 'D', since 'every card with a D on one side
+		has a 3 on the other' implies that cards having letters other than D can also have a 3
+		on the other side. We also don't have to check the second card, since D isn't a digit.
+		So we should also check the third card, to make sure that there's no D there.
 	
 2 - Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
 	and any laws listed in Section 11.4. Do not use the Completion Rule.
 	
 	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
 		
-		-
+			(a⇒c)∧(b⇒¬c)	Conflation.
+		⇒	(a∧b)⇒(c∧¬c)	Duality.
+		≡	(a∧b)⇒⊥			Excluded middle.
+		≡	¬(a∧b)v⊥		Material implication.
+		≡	¬(a∧b)
 	
 	(m) - (a⇒¬a)⇒¬a
 	
-		-
+			(a⇒¬a)
+		≡	¬av¬a		Material implication.
+		≡	¬a			Idempotent.
+		⇒	¬a			Reflexive.
 	
 	(p) - a=b ∨ a=c ∨ b=c
 	
-		-
+			(((a=b)=T) v b=c) v a=c		Context (assumption).
+		≡	((a=b)=(b≠c)) v a=c v b=c	Context (in exp0vexp1, changing exp0 we assume ¬exp1).
+		≡	(a=(b=b)≠c) v a=c v b=c		Associative.
+		≡	(a=T)≠c v a=c v b=c			Reflexive.
+		≡	(a≠c) v a=c v b=c			Context.
+		≡	(a≠c) v a=c v ⊥				Context.
+		≡	T
 	
 	(s) - a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
 	
-		-
-	
+			a⇒a∧b
+		≡	a⇒b				Discharge.
+		≡	a⇒b ∧ T			Context.
+		≡	a⇒b ∧ (b⇒b)		Reflexive.
+		≡	a∧b ⇒ b∧b		Conflation.
+		≡	a∧b ⇒ b			Idempotent.
+		
 	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
 	
-		-
+			if b∧c then P else Q fi
+		≡	(b∧c∧P)v(¬(b∧c)∧Q)							Case Analysis.
+		≡	(b∧c∧P)v((¬bv¬c)∧Q)							Duality
+		≡	(b∧c∧P)v((¬b∧Q)v(¬c∧Q))						Distribution
+		≡	(b∧(c∧P))v((¬c∧Q)v(¬b∧Q))					Associative
+		≡	
 		
 5 - Complete the following laws of Binary Theory 
 	by adding a right side using only the following symbols (in any quantity)
