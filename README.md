@@ -35,18 +35,18 @@ shorthand way to parse truth values for molecular formulas using trees.
 
 For completion, the truth table used is this:
 
-	*	TT	T⊥	⊥T	⊥⊥
-	*∧	T	⊥	⊥	⊥
-	*v	T	T	T	⊥
-	*⇒	T	⊥	T	T
-	*⇐	T	T	⊥	T
-	*=	T	⊥	⊥	T
-	*≠	⊥	T	T	⊥
+*	TT	T⊥	⊥T	⊥⊥
+*∧	T	⊥	⊥	⊥
+*v	T	T	T	⊥
+*⇒	T	⊥	T	T
+*⇐	T	T	⊥	T
+*=	T	⊥	⊥	T
+*≠	⊥	T	T	⊥
 	
 and we introduce the conditional composition:
 
-	*					TTT	TT⊥	T⊥T	T⊥⊥	⊥TT	⊥T⊥	⊥⊥T	⊥⊥⊥
-	*if then else fi 	T	T	⊥	⊥	T	⊥	T	⊥
+*					TTT	TT⊥	T⊥T	T⊥⊥	⊥TT	⊥T⊥	⊥⊥T	⊥⊥⊥
+*if then else fi 	T	T	⊥	⊥	T	⊥	T	⊥
 
 We introduce instantiation (i.e. creating molecular formulas from atomic formulas):
 
