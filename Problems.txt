@@ -38,7 +38,7 @@ uses chapters 1: 10-21, and chapter 3: 30-41.
 	(ii)	¬vab()
 	(iii)	¬⇒ab()
 	(iv)	≠⇒ab()
-	(v)	   ¬if then else fi ab()
+	(v)     ¬if then else fi ab()
 
 	(a) - T ≡
 	(b) - ⊥ ≡
