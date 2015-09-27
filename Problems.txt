@@ -1,0 +1,66 @@
+Exercises
+
+0, 2fmpsu, 5, 12, 16, 
+41,44,53,55,63
+uses chapters 1: 10-21, and chapter 3: 30-41.
+
+0 - There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
+	Each card has a letter on one side and a digit on the other. Which card(s) do you need
+	to turn over to determine whether every card with a D on one side has a 3 on the other? Why?
+	
+2 - Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
+	and any laws listed in Section 11.4. Do not use the Completion Rule.
+	
+	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
+		
+		-
+	
+	(m) - (a⇒¬a)⇒¬a
+	
+		-
+	
+	(p) - a=b ∨ a=c ∨ b=c
+	
+		-
+	
+	(s) - a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
+	
+		-
+	
+	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
+	
+		-
+		
+5 - Complete the following laws of Binary Theory 
+	by adding a right side using only the following symbols (in any quantity)
+	
+	(i) 	¬∧ab()
+	(ii)	¬vab()
+	(iii)	¬⇒ab()
+	(iv)	≠⇒ab()
+	(v)		¬if then else fi ab()
+
+	(a) - T ≡
+	(b) - ⊥ ≡
+	(c) - ¬a ≡
+	(d) - a∧b ≡
+	(e) - avb ≡
+	(f) - a=b ≡
+	(g) - a≠b ≡
+	(h) - a⇒b ≡
+	
+12 - Formalize each of the following statements as a binary expression.
+	Start by staying as close as possible to the English, then simplify as much as possible
+	(sometimes no simplification is possible). You will have to introduce new basic binary
+	expressions like (the door can be opened) for parts that cannot make use of binary operators,
+	but for words like "only if" you should use binary operators. You translate meanings from words
+	to binary symbols; the meaning of the words may depend on their context and even on facts not
+	explicitly stated. Formalization is not a simple substitution of symbols for words.
+	
+16 - (tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
+	tennis. And if I'm not watching tennis, I'm reading about tennis.". Assuming the speaker cannot
+	do more than one of these activities at a time,
+	
+	(a) Prove that the speaker is not reading about tennis.
+	(b) What is the speaker doing?
+	

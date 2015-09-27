@@ -23,12 +23,38 @@ an "application area" - i.e. a model (recall that a model is an interpretation
 of the semantic meaning of sentences in a logical structure). We'll see why this
 is useful below. 
 
-	Our logical connectives are ∧ ∨ ⇒ ⇐ = and !=. 
+	Our logical connectives are ∧ ∨ ⇒ ⇐ = and ≠. 
 	(i.e. two-operand binary operators). with a one-operand binary operator ¬.
-
+	New material:
+	¬ is a "prefix operator" as it's placed before its operand.
+	a≠b is an expression called an "unequation".
+	
 We should know all the truth tables by hand at this point.
 It would be useful to review "logic with trees" by Howson for a convenient
 shorthand way to parse truth values for molecular formulas using trees.
+
+For completion, the truth table used is this:
+
+		TT	T⊥	⊥T	⊥⊥
+	∧	T	⊥	⊥	⊥
+	v	T	T	T	⊥
+	⇒	T	⊥	T	T
+	⇐	T	T	⊥	T
+	=	T	⊥	⊥	T
+	≠	⊥	T	T	⊥
+	
+and we introduce the conditional composition:
+
+						TTT	TT⊥	T⊥T	T⊥⊥	⊥TT	⊥T⊥	⊥⊥T	⊥⊥⊥
+	if then else fi 	T	T	⊥	⊥	T	⊥	T	⊥
+
+We introduce instantiation (i.e. creating molecular formulas from atomic formulas):
+
+	Example: "x∧y" means 'all expressions obtained by replacing the variables x,y with
+	arbitrary binary expressions. So let x↦(⊥⇒¬(⊥vT)) and y↦(⊥vT) to get:
+	(⊥⇒¬(⊥vT))∧(⊥vT).
+	
+	see the top of pg. 12 for some added comments.
 
 - Some new material having to do with these operators:
 	
@@ -115,8 +141,166 @@ or an antitheorem.
 					occurence of this expression in a sentence, it must always retain
 					this assigned truth value.
 					
+On the Axiom Rule:
+	The only axiom in Binary Theory is T and the only antiaxiom is ⊥. So by the axiom rule, 
+	T is a theorem and ⊥ is an antitheorem. We'll introduce new axioms for new theories that
+	we'll introduce. Using these given axioms, and the rules of deduction, we can find new
+	theorems and antitheorems in the new theory. 
+	
+On the Evaluation Rule & Completion Rule:
+	Consider "Tvx". It contains an unclassified binary subexpression (subformula).
+	So we can't use the E.R. to classify this sentence. If x were a theorem, E.R. would say
+	that "Tvx" is a theorem. However, if x were an antitheorem, the E.R. would also say that
+	"Tvx" is a theorem. so we can use the Completion Rule to determine that the whole expression
+	is a theorem.
+	
+	We don't need to know whether a subexpression is classified or not to be able to use the
+	C.R. Any conclusion we arrive by using the C.R. is valid, even if we suppose subexpressions
+	to be unclassified.
+	
+On the Consistency Rule:
+	Suppose we had a classified binary expression (i.e. it assumes a-priori a truth value).
+	Consider a subexpression of this binary expression. Suppose we were to classify this
+	subexpression, but in doing so we get an inconsistency, then we should classify the
+	subexpression with the opposite class. (If you hadn't guessed by now, 'classify' means
+	to assign a truth value). This makes sense.
+	
+	Example: let A,B be two binary expressions. Suppose A⇒B is a theorem and A is a theorem.
+	Clearly if B were an antitheorem, we'd have that A⇒B were an antitheorem, so we must have
+	that B is also a theorem (B is in the class of theorems).
 
-					
+A word of note:
+Here, we're working with complete theories. However, in an incomplete theory, we might have
+that for some binary expression A, we could have that neither A nor ¬A are theorems. So an
+"antitheorem" isn't the same colloquially as "not a theorem". ¬A is not a theorem, but it
+certainly isn't an antitheorem either, since it is unclassified given an incomplete theory.
+
+
+===
+Writing Proofs in FM
+===
+
+First, let's explicitly state our rules of precedence.
+
+	0		T, ⊥, (), {}, [], <>, if fi, do od, numbers, texts, names
+	1		@, juxtaposition
+	2		prefix- ¢, $, ↔, #, *, ~, Δ, √, superscript, subscript
+	3		×, /, ∩
+	4		+, infix-, +(small), ∪
+	5		;, ;..., '
+	6		,, ,.., |, <|, |>
+	7		=, ≠, <, >, ≤, ≥, :, ::, ∈, ⊆
+	8		¬
+	9		∧
+	10		v
+	11		⇒, ⇐
+	12		:=, !, ?
+	13		exit, when, go to, wait until, assert, ensure, or
+	14		., ||, result
+	15		∀, ∃, Σ, Π, §, LIM, MAX, MIN, var, ivar, chan, frame
+	16		≡, ⇒(big), ⇐(big).
+	
+So for now, with the symbols we know, let's clarify the preference order we're concerned with.
+In order from highest to lowest:
+	
+	T, ⊥, (), if, fi, numbers, texts names,...
+	¢, ↔, +, ;..., ,.., =, ≠, <, >, ≤, ≥, ¬, ∧, v, ⇒, ⇐, ≡, ⇒(big), ⇐(big)
+
+Come back to this line as a reference during work.
+Note that we'll denote ⇒(big), ⇐(big) with added spaces to clarify it's precedence.
+
+Precedence is required for parsing expressions in absence of parentheses.
+So for expressions like "a∧b ∨ c" and "a ∧ b∨c", we clearly notice that the first is valid
+while the second isn't. We make the convention that for long expressions, we indent at the main
+connective. We see why this is useful below:
+
+A proof is a binary expression that is "clearly a theorem". i.e:
+	
+		expression0		hint 0
+	=	expression 1	hint 1
+	=	expression 2	hint 2
+	= 	expression 3
+	
+	which is an equivalent way of writing:
+	
+		expression0 = expression1
+	∧	expression1 = expression2
+	∧	expression 2 = expression3
+	
+A formal proof is a proof in which every step fits the form of the law given as a hint.
+Our reason for prefering formal proof is that in this format, each step can be checked by a
+computer, and so its validity is ensured. We'll go through some examples:
+
+	Proving the 'Law of Portation': a∧b⇒c ≡ a⇒(b⇒c)
+	
+		a∧b⇒c		Material Implication
+	≡	¬(a∧b)vc	Duality
+	≡	¬av¬bvc		Material Implication
+	≡	a⇒¬bvc		Material Implication
+	≡	a⇒(b⇒c)		
+
+	in a different form:
+	
+		(a∧b⇒c ≡ a⇒(b⇒c))			M.I. 3 times.
+	≡	(¬(a∧b)vc ≡ ¬av(¬bvc))		Duality
+	≡	(¬av¬bvc ≡ ¬av¬bvc)			Reflexivity of ≡
+	≡	T
+	
+Note that not all proofs can be converted from one form to another.
+The following can't be converted:
+
+		(a⇒b ≡ (a∧b))=a			Associative Law for =
+	≡	(a⇒b ≡ (a∧b≡a))			a Law of Inclusion
+	≡	T
+	
+Note that hints are optional, since the proofs aren't meant for computer interpretation
+but for human-reading.
+
+===
+Monotonicity & Antimonotonicity
+===
+
+Proofs, apart from being continuing equations, can also be continuing implications, or
+a mixture of both. Example:
+
+	Proving the first Law of Conflation: (a⇒b)∧(c⇒d) ⇒ a∧c⇒b∧d
+
+		a∧c⇒b∧d												distribute ⇒ over second ∧
+	≡	(a∧c⇒b)∧(a∧c⇒d)										antidistribution twice
+	≡	((a⇒b)v(c⇒d))∧((a⇒d)v(c⇒d))							distribute ∧ over v twice
+	≡	(a⇒b)∧(a⇒d)v(a⇒d)∧(c⇒d)v(c⇒b)∧(a⇒d)v(c⇒b)∧(c⇒d)		generalization
+	⇐ 	(a⇒b)∧(c⇒d)
+	
+From the mutual transitivity of ≡ and ⇐ (big), we've proven:
+
+	a∧c⇒b∧d ⇐ (a⇒b)∧(c⇒d)
+
+which, when rearranged, is equivalent to the theorem.
+Recall that we've showed that implication ⇒ is a partial-ordering on binary expressions.
+Indeed "a⇒b", apart from our standard reading as "a implies b" could be read as "a is stronger
+than or equal to b". Likewise, "a⇐b" could be read as "a is weaker than or equal to b".
+This will be important when we apply it to our convention that ⊥ is stronger than T.
+
+	The Monotonic Law "a⇒b ⇒ c∧a⇒c∧b" is read as:
+	"if a is 'weakened' to b, then c∧a is 'weakened' to c∧b".
+	That is, if we weaken a, then we weaken c∧a, and if we strengthen b then we strengthen c∧b.
+	Indeed, whatever happens to a conjunct (whether strengthening or weakening), the same
+	happens to the conjunction. So conjunction is monotonic in its conjuncts.
+	
+	The Antimonotonic Law "a⇒b ⇒ (b⇒c)⇒(a⇒c)" says that if we weaken/strengthen the antecedent,
+	then we strengthen/weaken the consequent. So implication is antimonotonic in its antecedent.
+
+We summarize with the monotonic and antimonotonic properties for binary expressions:
+
+	¬a is antimonotonic in a
+	a∧b is monotonic in a and monotonic in b
+	a∨b is monotonic in a and monotonic in b
+	a⇒b is antimonotonic in a and monotonic in b
+	a⇐b is monotonic in a and antimonotonic in b
+	"if a then b else c fi" is monotonic in b and monotonic in c
+
+
+
 ===
 'Bunch' Theory
 ===
