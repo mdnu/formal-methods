@@ -1,7 +1,7 @@
 Exercises
 
-0, 2fmpsu, 5, 12, 16, 
-41,44,53,55,63
+0, 2fmpsu, 5, 12, 16, -sat
+41,44,53,55,63		  -sun
 uses chapters 1: 10-21, and chapter 3: 30-41.
 
 0 - There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
@@ -38,7 +38,7 @@ uses chapters 1: 10-21, and chapter 3: 30-41.
 	(ii)	¬vab()
 	(iii)	¬⇒ab()
 	(iv)	≠⇒ab()
-	(v)		¬if then else fi ab()
+	(v)	   ¬if then else fi ab()
 
 	(a) - T ≡
 	(b) - ⊥ ≡
