@@ -37,12 +37,12 @@ For completion, the truth table used is this:
 
 		| TT | T⊥ | ⊥T | ⊥⊥ |
 	-------------------------
-	|∧	| T	 | ⊥  | ⊥  |  ⊥ |
-	|v	| T	 | T  | T  |  ⊥ |
-	|⇒	| T	 | ⊥  | T  |  T |
-	|⇐	| T	 | T  | ⊥  |  T |
-	|=	| T	 | ⊥  | ⊥  |  T |
-	|≠	| ⊥	 | T  | T  |  ⊥ |
+	| ∧	| T	 | ⊥  | ⊥  |  ⊥ |
+	| v	| T	 | T  | T  |  ⊥ |
+	| ⇒	| T	 | ⊥  | T  |  T |
+	| ⇐	| T	 | T  | ⊥  |  T |
+	| =	| T	 | ⊥  | ⊥  |  T |
+	| ≠	| ⊥	 | T  | T  |  ⊥ |
 	-------------------------
 
 and we introduce the conditional composition:
