@@ -35,13 +35,13 @@ shorthand way to parse truth values for molecular formulas using trees.
 
 For completion, the truth table used is this:
 
-		| TT | T⊥ | ⊥T | ⊥⊥ |
+	    | TT | T⊥ | ⊥T | ⊥⊥ |
 	-------------------------
-	| ∧	| T	 | ⊥  | ⊥  |  ⊥ |
-	| v	| T	 | T  | T  |  ⊥ |
-	| ⇒	| T	 | ⊥  | T  |  T |
-	| ⇐	| T	 | T  | ⊥  |  T |
-	| =	| T	 | ⊥  | ⊥  |  T |
+    | ∧ | T  | ⊥  | ⊥  |  ⊥ |
+    | v | T	 | T  | T  |  ⊥ |
+    | ⇒ | T	 | ⊥  | T  |  T |
+    | ⇐ | T  | T  | ⊥  |  T |
+    | = | T  | ⊥  | ⊥  |  T |
 	| ≠	| ⊥	 | T  | T  |  ⊥ |
 	-------------------------
 
