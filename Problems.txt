@@ -19,10 +19,10 @@ Exercises are found on page 154 and onwards.
 	
 	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
 		
-			(a⇒c)∧(b⇒¬c)	Conflation.
-		⇒	(a∧b)⇒(c∧¬c)	Duality.
+			(a⇒c)∧(b⇒¬c)		Conflation.
+		⇒	(a∧b)⇒(c∧¬c)		Duality.
 		≡	(a∧b)⇒⊥		Excluded middle.
-		≡	¬(a∧b)v⊥	Material implication.
+		≡	¬(a∧b)v⊥		Material implication.
 		≡	¬(a∧b)
 	
 	(m) - (a⇒¬a)⇒¬a
