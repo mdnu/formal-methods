@@ -35,7 +35,6 @@ shorthand way to parse truth values for molecular formulas using trees.
 
 For completion, the truth table used is this:
 
-<<<<<<< HEAD
 		| TT | T⊥ | ⊥T | ⊥⊥|
 	---------------------------
 	| ∧|    T|   ⊥|  ⊥|   ⊥|
@@ -45,17 +44,6 @@ For completion, the truth table used is this:
 	| = |   T|   ⊥|   ⊥|   T|
 	| ≠ |   ⊥|   T|   T|   ⊥|
 	---------------------------
-=======
-	    | TT | T⊥ | ⊥T | ⊥⊥|
-	-------------------------
-    | ∧|    T|   ⊥|  ⊥|   ⊥|
-    | ∨|    T|   T|   T|   ⊥|
-    | ⇒|    T|   ⊥|   T|   T|
-    | ⇐|    T|   T|   ⊥|   T|
-    | = |   T|   ⊥|   ⊥|   T|
-	| ≠ |   ⊥|   T|   T|   ⊥|
-	-------------------------
->>>>>>> parent of 0f849f7... last edit of the week.
 
 and we introduce the conditional composition:
 
@@ -158,12 +146,14 @@ or an antitheorem.
 					this assigned truth value.
 					
 On the Axiom Rule:
+
 	The only axiom in Binary Theory is T and the only antiaxiom is ⊥. So by the axiom rule, 
 	T is a theorem and ⊥ is an antitheorem. We'll introduce new axioms for new theories that
 	we'll introduce. Using these given axioms, and the rules of deduction, we can find new
 	theorems and antitheorems in the new theory. 
 	
 On the Evaluation Rule & Completion Rule:
+
 	Consider "Tvx". It contains an unclassified binary subexpression (subformula).
 	So we can't use the E.R. to classify this sentence. If x were a theorem, E.R. would say
 	that "Tvx" is a theorem. However, if x were an antitheorem, the E.R. would also say that
@@ -175,6 +165,7 @@ On the Evaluation Rule & Completion Rule:
 	to be unclassified.
 	
 On the Consistency Rule:
+
 	Suppose we had a classified binary expression (i.e. it assumes a-priori a truth value).
 	Consider a subexpression of this binary expression. Suppose we were to classify this
 	subexpression, but in doing so we get an inconsistency, then we should classify the
@@ -297,14 +288,14 @@ Indeed "a⇒b", apart from our standard reading as "a implies b" could be read a
 than or equal to b". Likewise, "a⇐b" could be read as "a is weaker than or equal to b".
 This will be important when we apply it to our convention that ⊥ is stronger than T.
 
-	The Monotonic Law "a⇒b ⇒ c∧a⇒c∧b" is read as:
-	"if a is 'weakened' to b, then c∧a is 'weakened' to c∧b".
-	That is, if we weaken a, then we weaken c∧a, and if we strengthen b then we strengthen c∧b.
-	Indeed, whatever happens to a conjunct (whether strengthening or weakening), the same
-	happens to the conjunction. So conjunction is monotonic in its conjuncts.
-	
-	The Antimonotonic Law "a⇒b ⇒ (b⇒c)⇒(a⇒c)" says that if we weaken/strengthen the antecedent,
-	then we strengthen/weaken the consequent. So implication is antimonotonic in its antecedent.
+The Monotonic Law "a⇒b ⇒ c∧a⇒c∧b" is read as:
+"if a is 'weakened' to b, then c∧a is 'weakened' to c∧b".
+That is, if we weaken a, then we weaken c∧a, and if we strengthen b then we strengthen c∧b.
+Indeed, whatever happens to a conjunct (whether strengthening or weakening), the same
+happens to the conjunction. So conjunction is monotonic in its conjuncts.
+
+The Antimonotonic Law "a⇒b ⇒ (b⇒c)⇒(a⇒c)" says that if we weaken/strengthen the antecedent,
+then we strengthen/weaken the consequent. So implication is antimonotonic in its antecedent.
 
 We summarize with the monotonic and antimonotonic properties for binary expressions:
 
