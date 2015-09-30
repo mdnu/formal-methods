@@ -1,10 +1,5 @@
 Exercises
 
-0, 2fmpsu, 5, 12, 16, -sat
-41,44,53,55,63		  -sun
-uses chapters 1: 10-21, and chapter 3: 30-41.
-Exercises are found on page 154 and onwards.
-
 0 - There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
 	Each card has a letter on one side and a digit on the other. Which card(s) do you need
 	to turn over to determine whether every card with a D on one side has a 3 on the other? Why?
@@ -19,49 +14,50 @@ Exercises are found on page 154 and onwards.
 	
 	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
 		
-			(a⇒c)∧(b⇒¬c)		Conflation.
-		⇒	(a∧b)⇒(c∧¬c)		Duality.
-		≡	(a∧b)⇒⊥		Excluded middle.
-		≡	¬(a∧b)v⊥		Material implication.
-		≡	¬(a∧b)
+				(a⇒c)∧(b⇒¬c)		Conflation.
+			⇒	(a∧b)⇒(c∧¬c)		Duality.
+			≡	(a∧b)⇒⊥		Excluded middle.
+			≡	¬(a∧b)v⊥		Material implication.
+			≡	¬(a∧b)
 	
 	(m) - (a⇒¬a)⇒¬a
 	
-			(a⇒¬a)
-		≡	¬av¬a		Material implication.
-		≡	¬a			Idempotent.
-		⇒	¬a			Reflexive.
+				(a⇒¬a)
+			≡	¬av¬a		Material implication.
+			≡	¬a			Idempotent.
+			⇒	¬a			Reflexive.
 	
 	(p) - a=b ∨ a=c ∨ b=c
 	
-			(((a=b)=T) v b=c) v a=c		Context (assumption).
-		≡	((a=b)=(b≠c)) v a=c v b=c 	Context (in exp0vexp1, changing exp0 we assume ¬exp1).
-		≡	(a=(b=b)≠c) v a=c v b=c		Associative.
-		≡	(a=T)≠c v a=c v b=c		Reflexive.
-		≡	(a≠c) v a=c v b=c 		Context.
-		≡	(a≠c) v a=c v ⊥ 		Context.
-		≡	T
+				(((a=b)=T) v b=c) v a=c		Context (assumption).
+			≡	((a=b)=(b≠c)) v a=c v b=c 	Context (in exp0vexp1, changing exp0 we assume ¬exp1).
+			≡	(a=(b=b)≠c) v a=c v b=c		Associative.
+			≡	(a=T)≠c v a=c v b=c		Reflexive.
+			≡	(a≠c) v a=c v b=c 		Context.
+			≡	(a≠c) v a=c v ⊥ 		Context.
+			≡	T
 	
 	(s) - a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
 	
-			a⇒a∧b
-		≡	a⇒b			Discharge.
-		≡	a⇒b ∧ T		Context.
-		≡	a⇒b ∧ (b⇒b)		Reflexive.
-		≡	a∧b ⇒ b∧b 		Conflation.
-		≡	a∧b ⇒ b		Idempotent.
+				a⇒a∧b
+			≡	a⇒b			Discharge.
+			≡	a⇒b ∧ T		Context.
+			≡	a⇒b ∧ (b⇒b)		Reflexive.
+			≡	a∧b ⇒ b∧b 		Conflation.
+			≡	a∧b ⇒ b		Idempotent.
 		
 	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
 	
-			if b∧c then P else Q fi
-		≡	(b∧c∧P)v(¬(b∧c)∧Q) 		Case Analysis.
-		≡	(b∧c∧P)v((¬bv¬c)∧Q) 		Duality
-		≡	(b∧c∧P)v((¬b∧Q)v(¬c∧Q)) 	Distribution
-		≡	(b∧(c∧P))v((¬c∧Q)v(¬b∧Q)) 	Associative
-		≡	(b∧(c∧P))v(((¬c∧Q)∧¬(¬b∧Q))v(¬b∧Q))	Context (changing (¬c∧Q), we assume ¬(¬b∧Q))
-		≡	(b∧(c∧P))v(((¬c∧Q)∧(bvQ))v(¬b∧Q))	Duality
-		≡	(b∧(c∧P))v(((b∧¬c∧Q)v(Q∧¬c∧Q))v(¬b∧Q))	Distribution
-		≡	(b∧(c∧P))v(((b∧¬c∧Q)v(¬c∧Q))v(¬b∧Q))
+				if b∧c then P else Q fi
+			≡	(b∧c∧P)v(¬(b∧c)∧Q) 		Case Analysis.
+			≡	(b∧c∧P)v((¬bv¬c)∧Q) 		Duality
+			≡	(b∧c∧P)v((¬b∧Q)v(¬c∧Q)) 	Distribution
+			≡	(b∧(c∧P))v((¬c∧Q)v(¬b∧Q)) 	Associative
+			≡	(b∧(c∧P))v(((¬c∧Q)∧¬(¬b∧Q))v(¬b∧Q))	Context (changing (¬c∧Q), we assume ¬(¬b∧Q))
+			≡	(b∧(c∧P))v(((¬c∧Q)∧(bvQ))v(¬b∧Q))	Duality
+			≡	(b∧(c∧P))v(((b∧¬c∧Q)v(Q∧¬c∧Q))v(¬b∧Q))	Distribution
+			≡	(b∧(c∧P))v(((b∧¬c∧Q)v(¬c∧Q))v(¬b∧Q))
+			????
 		
 5 - Complete the following laws of Binary Theory 
 	by adding a right side using only the following symbols (in any quantity)
@@ -72,14 +68,54 @@ Exercises are found on page 154 and onwards.
 	(iv)	≠⇒ab()
 	(v)     ¬if then else fi ab()
 
-	(a) - T ≡
-	(b) - ⊥ ≡
-	(c) - ¬a ≡
-	(d) - a∧b ≡
-	(e) - avb ≡
-	(f) - a=b ≡
-	(g) - a≠b ≡
-	(h) - a⇒b ≡
+		(a) (i)		T ≡ ¬(a∧¬a)
+			(ii)	T ≡ av¬a
+			(iii)	T ≡ a⇒a
+			(iv)	T ≡ a≠b⇒b≠a
+			(v)		T ≡ ¬(if a then ¬a else a)
+			
+		(b) (i)		⊥ ≡ a∧¬a
+			(ii)	⊥ ≡ ¬(av¬a)
+			(iii)	⊥ ≡ a⇒¬a
+			(iv)	⊥ ≡ a≠b⇒a≠a
+			(v)		⊥ ≡ if a then ¬a else a
+		
+		(c) (i)		¬a ≡ ¬¬¬a
+			(ii)	¬a ≡ ¬(av(bv¬b))
+			(iii)	¬a ≡ ¬(¬a⇒a)
+			(iv)	¬a ≡ ¬(¬a⇒a≠a)
+			(v)		¬a ≡ if ¬a then ¬a else ¬a
+		
+		(d) (i)		a∧b ≡ (¬¬a∧¬¬b)
+			(ii)	a∧b ≡ ¬(¬av¬b)
+			(iii)	a∧b ≡ ¬(a⇒¬b)
+			(iv)	a∧b ≡ ??
+			(v)		a∧b ≡ if a then b else a fi
+		
+		(e) (i)		avb ≡ ¬(¬a∧¬b)
+			(ii)	avb ≡ ¬¬av¬¬b
+			(iii)	avb ≡ ¬a⇒b
+			(iv)	avb ≡ ???
+			(v)		avb ≡ if a then if a then ¬b else ¬b fi else b fi
+			
+		(f) (i)		a=b ≡ ¬(¬(a∧¬b)∧¬(¬a∧¬b))
+			(ii)	a=b ≡ ¬(¬av¬b)v¬(avb)
+			(iii)	a=b ≡ ¬(a⇒b)⇒¬(a⇒¬b)
+			(iv)	a=b ≡ ??
+			(v)		a=b ≡ ??
+		
+		(g) (i)		a≠b ≡ (¬(a∧¬b)∧¬(¬a∧¬b))
+			(ii)	a≠b ≡ (¬av¬b)v¬(avb)
+			(iii)	a≠b ≡ (¬a⇒b)⇒(a⇒¬b)
+			(iv)	a≠b ≡ ?? (easy answer: a≠b)
+			(v)		a≠b ≡ ??
+		
+		(h) (i)		a⇒b ≡ ¬(a∧¬b)
+			(ii)	a⇒b ≡ ¬avb
+			(iii)	a⇒b ≡ ¬b⇒¬a
+			(iv)	a⇒b ≡ ?? (easy answer:a⇒b)
+			(v)		a⇒b ≡ if a then b else if a then ¬b else ¬b fi fi
+		
 	
 12 - Formalize each of the following statements as a binary expression.
 	Start by staying as close as possible to the English, then simplify as much as possible
@@ -89,10 +125,143 @@ Exercises are found on page 154 and onwards.
 	to binary symbols; the meaning of the words may depend on their context and even on facts not
 	explicitly stated. Formalization is not a simple substitution of symbols for words.
 	
+		(a) The door can only be opened if the elevator is stopped.
+			A = "the elevator is stopped"
+			B = "The door can be opened"
+			
+			(A⇒B)∧(B⇒A)
+		
+		(b)	Neither the elevator door nor the floor door will open unless both of them do.
+			A = "The elevator door will open."
+			B = "The floor door will open."
+			
+			¬(A∧B)⇒¬Av¬B
+			or, A∧B (by truth tables).
+		
+		(c) Either the motor is jammed or the control is broken.
+			A = "The motor is jammed."
+			B = "The control is broken."
+			
+			AvB
+			
+		(d) Either the light is on or it is off.
+			A = "The light is on."
+			
+			Av¬A
+		
+		(e) If you press the button, the elevator will come.
+			A = "You press the button."
+			B = "The elevator will come."
+			
+			A⇒B
+		
+		(f) If the power switch is on, the system is operating.
+			A = "The power switch is on."
+			B = "The system is operating."
+			
+			(A⇒B)∧¬(¬A∧B)
+			simplify: (A⇒B)∧(B⇒A)
+			simplify: ¬(A≠B)
+		
+		(g) Where there's smoke, there's fire; and there's no smoke, so there's no fire.
+			A = "There is smoke."
+			B = "There is fire."
+			
+			(A⇒B)∧(¬A) ≡ ¬B
+		
+		(h) Where there's smoke, there's fire; and there's no fire; so there's no smoke.
+			A = "There is smoke."
+			B = "There is fire."
+			
+			(A⇒B)∧(¬B) ≡ ¬A
+			(this evaluates to an antitheorem).
+		
+		(i) You can't score if you don't shoot.
+			A = "You score."
+			B = "You shoot."
+			
+			¬B⇒¬A
+		
+		(j) If you have a key, only then can you open the door.
+			A = "You have a key."
+			B = "You can open the door"
+			
+			¬(A≠B)
+			or, (A⇒B)∧(B⇒A)
+		
+		(k) No pain, no gain.
+			A = "There is pain."
+			B = "There is gain."
+			
+			¬(A≠B)
+			or, (A⇒B)∧(B⇒A)
+		
+		(l) No shirt? No shoes? No service!
+			A = "You have a shirt."
+			B = "You have shoes."
+			C = "You get service."
+			
+			A∧B∧C
+		
+		(m) If it happens, it happens.
+			A = "It happens"
+			
+			A=A
+			
+	
 16 - (tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
 	tennis. And if I'm not watching tennis, I'm reading about tennis.". Assuming the speaker cannot
 	do more than one of these activities at a time,
 	
 	(a) Prove that the speaker is not reading about tennis.
-	(b) What is the speaker doing?
+		A = "I'm playing tennis."
+		B = "I'm watching tennis."
+		C = "I'm reading about tennis."
+		
+		So we have:
+			¬A⇒B
+			¬B⇒C
+		which we form (¬A⇒B)∧(¬B⇒C), and use this:
+		We show that (¬A⇒B)∧(¬B⇒C) is false when we assume C is true while A and B are false.
+		
+			(¬A⇒B)∧(¬B⇒C)		
+		≡	(¬(A=⊥)⇒(B=⊥)∧(¬(B=⊥)⇒(C=T)))	context.
+		≡	(¬⊥⇒⊥ ∧(¬⊥⇒T))					
+		≡	(⊥v⊥ ∧ ⊥vT)						M.I.
+		≡	(⊥ ∧ ⊥vT)						Identity.
+		≡	(⊥∧⊥ v ⊥∧T)						Distribution.
+		≡	(⊥ v ⊥)							Identity.
+		≡	⊥
+		
+		So the speaker is not reading about tennis.
 	
+	(b) What is the speaker doing?
+		
+		We find the class for our binary expressions which evaluates this to true.
+		
+		Since C is false, let's assume the other two cases: 
+		A true while B and C false, and B true while A and C false.
+		
+		For the first case:
+		
+			(¬A⇒B)∧(¬B⇒C)		
+		≡	(¬(A=T)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊥)))	context.
+		≡	(¬T⇒⊥ ∧(¬⊥⇒⊥))
+		≡	(Tv⊥ ∧ ⊥v⊥)						M.I.
+		≡	(Tv⊥ ∧ ⊥)						Identity.
+		≡	(T∧⊥ v ⊥∧⊥)						Distribution.
+		≡	(⊥ v ⊥)							Identity.
+		≡	⊥
+		
+		So A is false, and the speaker is not playing tennis.
+		Since we're assuming only one of A,B,C can be true, then clearly B must be true.
+		For brevity, we prove it:
+		
+			(¬A⇒B)∧(¬B⇒C)		
+		≡	(¬(A=⊥)⇒(B=T)∧(¬(B=T)⇒(C=⊥)))	context.
+		≡	(¬⊥⇒T ∧(¬T⇒⊥))					
+		≡	(⊥vT ∧ Tv⊥)						M.I.
+		≡	⊥v(T∧T)							Distribution.
+		≡	⊥vT								Identity
+		≡	T
+		
