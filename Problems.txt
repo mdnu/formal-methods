@@ -8,24 +8,75 @@ Exercises
 		has a 3 on the other' implies that cards having letters other than D can also have a 3
 		on the other side. We also don't have to check the second card, since D isn't a digit.
 		So we should also check the third card, to make sure that there's no D there.
-	
+		
+		Let's reframe this in FM.
+		
+		Refer to each card by the character we see on it. i.e. "3" denotes the last card.
+		Refer to the character on the flip-side of card C as C'. So C'' = C.
+		So a card with a D on one side and 3 on the other is characterized as:
+		C=D ⇒ C'=3. We say this for the four sides we can see, and the four we can't:
+		by instatiating C with each of them:
+		
+				(D=D ⇒ D'=3)∧(D'=D ⇒ D''=3)
+			∧	(E=D ⇒ E'=3)∧(E'=D ⇒ E''=3)
+			∧	(2=D ⇒ 2'=3)∧(2'=D ⇒ 2''=3)
+			∧	(3=D ⇒ 3'=3)∧(3'=D ⇒ 3''=3)
+		
+		Note that this expression should evaluate to T by our assumptions.
+		Simplify this expression by using C''=C and that cards must have both letters and numbers.
+			
+				(D=D ⇒ D'=3)∧(D'=D ⇒ D''=3)
+			∧	(E=D ⇒ E'=3)∧(E'=D ⇒ E''=3)
+			∧	(2=D ⇒ 2'=3)∧(2'=D ⇒ 2''=3)
+			∧	(3=D ⇒ 3'=3)∧(3'=D ⇒ 3''=3)		
+		≡		(T ⇒ D'=3)∧(⊥ ⇒ ⊥)
+			∧	(⊥ ⇒ E'=3)∧(⊥ ⇒ ⊥)
+			∧	(⊥ ⇒ ⊥)∧(2'=D ⇒ ⊥)
+			∧	(⊥ ⇒ ⊥)∧(3'=D ⇒ T)	
+		≡		(T ⇒ D'=3)∧(T)
+			∧	(⊥ ⇒ E'=3)∧(T)
+			∧	(T)∧(2'=D ⇒ ⊥)
+			∧	(T)∧(3'=D ⇒ T)
+		≡		(T ⇒ D'=3)
+			∧	(⊥ ⇒ E'=3)
+			∧	(2'=D ⇒ ⊥)
+			∧	(3'=D ⇒ T)
+		≡		⊥v(D'=3)
+			∧	Tv(E'=3)
+			∧	¬(2'=D)v⊥
+			∧	¬(3'=D)vT
+		≡		(D'=3)
+			∧	Tv(E'=3)
+			∧	¬(2'=D)
+			∧	¬(3'=D)vT
+		≡		(D'=3)
+			∧	Tv(E'=3)
+			∧	¬(2'=D)
+			∧	¬(3'=D)vT
+		≡		(D'=3)
+			∧	T
+			∧	¬(2'=D)
+			∧	T
+		≡		(D'=3)∧(2'≠D)
+		
 2 - Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
 	and any laws listed in Section 11.4. Do not use the Completion Rule.
 	
 	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
 		
-				(a⇒c)∧(b⇒¬c)		Conflation.
-			⇒	(a∧b)⇒(c∧¬c)		Duality.
-			≡	(a∧b)⇒⊥		Excluded middle.
-			≡	¬(a∧b)v⊥		Material implication.
+				(a⇒c)∧(b⇒¬c)		conflation.
+			⇒	(a∧b)⇒(c∧¬c)		duality.
+			≡	¬(c∧¬c)⇒¬(a∧b)		antecedent is law of noncontradiction
+			≡	T⇒¬(a∧b)			identity for ⇒
 			≡	¬(a∧b)
 	
 	(m) - (a⇒¬a)⇒¬a
 	
-				(a⇒¬a)
-			≡	¬av¬a		Material implication.
-			≡	¬a			Idempotent.
-			⇒	¬a			Reflexive.
+				T					indirect proof, instantiate, replacing a with ¬a
+			≡	(¬¬a⇒¬a)=¬a			double negation
+			≡	(a⇒¬a)=¬a			antisymmetry (double implication)
+			≡	((a⇒¬a)⇒¬a)∧(¬a⇒(a⇒¬a))		specialization
+			⇒	((a⇒¬a)⇒¬a)			
 	
 	(p) - a=b ∨ a=c ∨ b=c
 	
@@ -36,7 +87,16 @@ Exercises
 			≡	(a≠c) v a=c v b=c 		Context.
 			≡	(a≠c) v a=c v ⊥ 		Context.
 			≡	T
-	
+			
+		alternate proof:
+				
+				a=b ∨ a=c ∨ b=c				identity and reflexive laws for =
+			≡	a=b ∨ a=c v b=((a=a)=c)		symmetry and associative laws for =
+			≡	(a=b v a=c) v (a=b)=(a=c)	main v distributes over =
+			≡	(a=b v a=c v a=b) = (a=b v a=c v a=c)	symmetry, assoc and idempotence of v twice
+			≡	(a=b v a=c) = (a=b v a=c)
+			≡	T
+			
 	(s) - a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
 	
 				a⇒a∧b
@@ -45,19 +105,27 @@ Exercises
 			≡	a⇒b ∧ (b⇒b)		Reflexive.
 			≡	a∧b ⇒ b∧b 		Conflation.
 			≡	a∧b ⇒ b		Idempotent.
-		
+			
+			proof c/o prof hehner:
+			
+				a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
+			≡	(a⇒a ∧ a⇒b) ≡ a⇒b ≡ (a⇒a ∧ a⇒b)		distrib ⇒ over ∧, antidistrib ⇒ over ∨
+			≡	a⇒b ≡ a⇒b ≡ a⇒b				reflexivity of ⇒ and identity of ∧, reflexivity of =
+			≡	T									
+			
 	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
 	
-				if b∧c then P else Q fi
-			≡	(b∧c∧P)v(¬(b∧c)∧Q) 		Case Analysis.
-			≡	(b∧c∧P)v((¬bv¬c)∧Q) 		Duality
-			≡	(b∧c∧P)v((¬b∧Q)v(¬c∧Q)) 	Distribution
-			≡	(b∧(c∧P))v((¬c∧Q)v(¬b∧Q)) 	Associative
-			≡	(b∧(c∧P))v(((¬c∧Q)∧¬(¬b∧Q))v(¬b∧Q))	Context (changing (¬c∧Q), we assume ¬(¬b∧Q))
-			≡	(b∧(c∧P))v(((¬c∧Q)∧(bvQ))v(¬b∧Q))	Duality
-			≡	(b∧(c∧P))v(((b∧¬c∧Q)v(Q∧¬c∧Q))v(¬b∧Q))	Distribution
-			≡	(b∧(c∧P))v(((b∧¬c∧Q)v(¬c∧Q))v(¬b∧Q))
-			????
+				if b then if c then P else Q fi else Q fi
+			≡	b∧(c∧P v ¬c∧Q) v (¬b∧Q)			case analysis twice
+			≡	(b∧c∧P) v (b∧¬c∧Q) v (¬b∧Q)		distribution
+			≡	b∧c∧P v (b∧¬c v ¬b)∧Q			distribution
+			≡	b∧c∧P v (¬bv(b∧¬c))∧Q			symmetry
+			≡	b∧c∧P v ((¬bvb) ∧ (¬bv¬c))∧Q	distribution
+			≡	b∧c∧P v (T∧(¬bv¬c))∧Q			identity
+			≡	((b∧c)∧P) v ((¬bv¬c)∧Q)			case analysis
+			≡	if b∧c then P else Q fi
+			
+			
 		
 5 - Complete the following laws of Binary Theory 
 	by adding a right side using only the following symbols (in any quantity)
@@ -72,50 +140,124 @@ Exercises
 			(ii)	T ≡ av¬a
 			(iii)	T ≡ a⇒a
 			(iv)	T ≡ a≠b⇒b≠a
-			(v)		T ≡ ¬(if a then ¬a else a)
+			(v)		T ≡ if a then a else ¬a fi
 			
 		(b) (i)		⊥ ≡ a∧¬a
 			(ii)	⊥ ≡ ¬(av¬a)
-			(iii)	⊥ ≡ a⇒¬a
-			(iv)	⊥ ≡ a≠b⇒a≠a
-			(v)		⊥ ≡ if a then ¬a else a
+			(iii)	⊥ ≡ ¬(a⇒a)
+			(iv)	⊥ ≡ a≠a
+			(v)		⊥ ≡ if a then ¬a else a fi
 		
-		(c) (i)		¬a ≡ ¬¬¬a
-			(ii)	¬a ≡ ¬(av(bv¬b))
-			(iii)	¬a ≡ ¬(¬a⇒a)
-			(iv)	¬a ≡ ¬(¬a⇒a≠a)
-			(v)		¬a ≡ if ¬a then ¬a else ¬a
+		(c) (i)		¬a ≡ ¬a
+			(ii)	¬a ≡ ¬a
+			(iii)	¬a ≡ ¬a
+			(iv)	¬a ≡ a⇒a≠a
+			(v)		¬a ≡ ¬a
 		
-		(d) (i)		a∧b ≡ (¬¬a∧¬¬b)
+		(d) (i)		a∧b ≡ a∧b
 			(ii)	a∧b ≡ ¬(¬av¬b)
 			(iii)	a∧b ≡ ¬(a⇒¬b)
-			(iv)	a∧b ≡ ??
+			(iv)	a∧b ≡ (a⇒(a≠b))⇒(a≠a)			**
 			(v)		a∧b ≡ if a then b else a fi
 		
 		(e) (i)		avb ≡ ¬(¬a∧¬b)
-			(ii)	avb ≡ ¬¬av¬¬b
+			(ii)	avb ≡ avb
 			(iii)	avb ≡ ¬a⇒b
-			(iv)	avb ≡ ???
-			(v)		avb ≡ if a then if a then ¬b else ¬b fi else b fi
+			(iv)	avb ≡ (a⇒(a≠a))⇒b				**
+			(v)		avb ≡ if a then a else b fi
+			
+			proof of (v):
+					if a then a else b fi
+				≡	(a∧a)v(¬a∧b)
+				≡	av(¬a∧b)
+				≡	(av¬a)∧(avb)
+				≡	T∧(avb)
+				≡	avb
 			
 		(f) (i)		a=b ≡ ¬(¬(a∧¬b)∧¬(¬a∧¬b))
 			(ii)	a=b ≡ ¬(¬av¬b)v¬(avb)
-			(iii)	a=b ≡ ¬(a⇒b)⇒¬(a⇒¬b)
-			(iv)	a=b ≡ ??
-			(v)		a=b ≡ ??
+			(iii)	a=b ≡ ¬((a⇒b)⇒¬(b⇒a))
+			(iv)	a=b ≡ (a≠b)⇒(a≠a)
+			(v)		a=b ≡ if a then b else ¬b fi
+			
+			proof of (iii):
+					¬((a⇒b)⇒¬(b⇒a))
+				≡	¬(¬(a⇒b)v¬(b⇒a))
+				≡	(a⇒b)∧(b⇒a)
+				≡	a=b
+				
+			proof of (iv):
+					(a≠b)⇒(a≠a)
+				≡	¬((a⇒b)∧(b⇒a))⇒¬((a⇒a)∧(a⇒a))
+				≡	¬((a⇒b)∧(b⇒a))⇒⊥
+				≡	((a⇒b)∧(b⇒a))v⊥
+				≡	(a⇒b)∧(b⇒a)
+				≡	a=b
+			
+			proof of (v):
+					if a then b else ¬b fi
+				≡	(a∧b)v(¬a∧¬b)
+				≡	((a∧b)v¬a) ∧ ((a∧b)v¬b)
+				≡	(av¬a ∧ bv¬a) ∧ (av¬b ∧ bv¬b)
+				≡	(T ∧ bv¬a) ∧ (av¬b ∧ T)
+				≡	(bv¬a) ∧ (av¬b)
+				≡	(a⇒b)∧(b⇒a)
+				≡	a=b
 		
-		(g) (i)		a≠b ≡ (¬(a∧¬b)∧¬(¬a∧¬b))
-			(ii)	a≠b ≡ (¬av¬b)v¬(avb)
-			(iii)	a≠b ≡ (¬a⇒b)⇒(a⇒¬b)
-			(iv)	a≠b ≡ ?? (easy answer: a≠b)
-			(v)		a≠b ≡ ??
-		
+		(g) (i)		a≠b ≡ (¬(a∧b)∧¬(¬a∧¬b))
+			(ii)	a≠b ≡ ¬(av¬b)v¬(¬avb)
+			(iii)	a≠b ≡ (a⇒b)⇒¬(b⇒a)
+			(iv)	a≠b ≡ a≠b
+			(v)		a≠b ≡ if a then ¬b else b fi
+			
+			proof of (i):
+					(¬(a∧b)∧¬(¬a∧¬b))
+				≡	¬(a∧b)∧(avb)
+				≡	(¬av¬b)∧(avb)
+				≡	(¬a∧(avb) v ¬b∧(avb))
+				≡	((¬a∧a v ¬a∧b) v (¬b∧a v ¬b∧b))
+				≡	((⊥ v ¬a∧b) v (¬b∧a v ⊥))
+				≡	(¬a∧b) v (¬b∧a)
+				≡	¬(¬(¬a∧b)∧¬(¬b∧a))
+				≡	¬((av¬b)∧(bv¬a))
+				≡	¬((bv¬a)∧(av¬b))
+				≡	¬((a⇒b)∧(b⇒a))
+				≡	a≠b
+				
+			proof of (ii):
+					¬(av¬b)v¬(¬avb)
+				≡	¬(b⇒a)v¬(a⇒b)
+				≡	¬((b⇒a)∧(a⇒b))
+				≡	¬((a⇒b)∧(b⇒a))
+				≡	a≠b
+				
+			proof of (iii):
+					(a⇒b)⇒¬(b⇒a)
+				≡	¬(a⇒b)v¬(b⇒a)
+				≡	¬((a⇒b)∧(b⇒a))
+				≡	a≠b
+				
+			proof of (v):
+					if a then ¬b else b fi
+				≡	(a∧¬b)v(¬a∧b)
+				≡	(¬a∧b)v(¬b∧a)
+				≡	¬(¬(¬a∧b)∧¬(¬b∧a))
+				≡	¬((av¬b)∧(bv¬a))
+				≡	¬((bv¬a)∧(av¬b))
+				≡	¬((a⇒b)∧(b⇒a))
+				≡	a≠b
+				
 		(h) (i)		a⇒b ≡ ¬(a∧¬b)
 			(ii)	a⇒b ≡ ¬avb
-			(iii)	a⇒b ≡ ¬b⇒¬a
-			(iv)	a⇒b ≡ ?? (easy answer:a⇒b)
-			(v)		a⇒b ≡ if a then b else if a then ¬b else ¬b fi fi
-		
+			(iii)	a⇒b ≡ a⇒b
+			(iv)	a⇒b ≡ a⇒b
+			(v)		a⇒b ≡ if a then b else ¬a fi
+			
+			proof of (v):
+					if a then b else ¬a fi
+				≡	(a⇒b)∧(¬a⇒¬a)
+				≡	(a⇒b)∧T
+				≡	a⇒b
 	
 12 - Formalize each of the following statements as a binary expression.
 	Start by staying as close as possible to the English, then simplify as much as possible
@@ -264,4 +406,7 @@ Exercises
 		≡	⊥v(T∧T)							Distribution.
 		≡	⊥vT								Identity
 		≡	T
+		
+		prof hehner's solution:
+		
 		
