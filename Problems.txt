@@ -90,7 +90,7 @@ Exercises
 			
 		alternate proof:
 				
-				a=b ∨ a=c ∨ b=c				identity and reflexive laws for =
+				a=b ∨ a=c ∨ b=c			identity and reflexive laws for =
 			≡	a=b ∨ a=c v b=((a=a)=c)			symmetry and associative laws for =
 			≡	(a=b v a=c) v (a=b)=(a=c)		main v distributes over =
 			≡	(a=b v a=c v a=b) = (a=b v a=c v a=c)	symmetry, assoc and idempotence of v twice
@@ -110,7 +110,7 @@ Exercises
 			
 				a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
 			≡	(a⇒a ∧ a⇒b) ≡ a⇒b ≡ (a⇒a ∧ a⇒b)		distrib ⇒ over ∧, antidistrib ⇒ over ∨
-			≡	a⇒b ≡ a⇒b ≡ a⇒b			reflexivity of ⇒ and identity of ∧, reflexivity of =
+			≡	a⇒b ≡ a⇒b ≡ a⇒b		reflexivity of ⇒ and identity of ∧, reflexivity of =
 			≡	T									
 			
 	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
@@ -120,7 +120,7 @@ Exercises
 			≡	(b∧c∧P) v (b∧¬c∧Q) v (¬b∧Q)		distribution
 			≡	b∧c∧P v (b∧¬c v ¬b)∧Q			distribution
 			≡	b∧c∧P v (¬bv(b∧¬c))∧Q			symmetry
-			≡	b∧c∧P v ((¬bvb) ∧ (¬bv¬c))∧Q	distribution
+			≡	b∧c∧P v ((¬bvb) ∧ (¬bv¬c))∧Q		distribution
 			≡	b∧c∧P v (T∧(¬bv¬c))∧Q			identity
 			≡	((b∧c)∧P) v ((¬bv¬c)∧Q)		case analysis
 			≡	if b∧c then P else Q fi
@@ -403,7 +403,7 @@ Exercises
 		≡	(¬(A=⊥)⇒(B=T)∧(¬(B=T)⇒(C=⊥)))	context.
 		≡	(¬⊥⇒T ∧(¬T⇒⊥))					
 		≡	(⊥vT ∧ Tv⊥)				M.I.
-		≡	⊥v(T∧T)					Distribution.
+		≡	⊥v(T∧T)				Distribution.
 		≡	⊥vT					Identity
 		≡	T
 		
