@@ -271,84 +271,131 @@ Exercises
 			A = "the elevator is stopped"
 			B = "The door can be opened"
 			
-			(A⇒B)∧(B⇒A)
+				B⇒A
+				this allows for the case when the elevator is stopped but
+				the door can't be opened. (remember, implication is only false iff 
+				the antecedent is true but conclusion is false).
 		
 		(b)	Neither the elevator door nor the floor door will open unless both of them do.
 			A = "The elevator door will open."
 			B = "The floor door will open."
 			
-			¬(A∧B)⇒¬Av¬B
-			or, A∧B (by truth tables).
+				¬(AvB)v(A∧B)
+				simplifies to:
+				(¬A∧¬B)v(A∧B)
+			≡	(A∧B)v(¬A∧¬B)
+			≡	A=B
 		
 		(c) Either the motor is jammed or the control is broken.
 			A = "The motor is jammed."
 			B = "The control is broken."
 			
-			AvB
+				AvB
 			
 		(d) Either the light is on or it is off.
 			A = "The light is on."
 			
-			Av¬A
+				Av¬A
+				simplifies to:
+				A=A
+				or
+				A≠¬A
 		
 		(e) If you press the button, the elevator will come.
 			A = "You press the button."
 			B = "The elevator will come."
 			
-			A⇒B
+				A⇒B
 		
 		(f) If the power switch is on, the system is operating.
 			A = "The power switch is on."
 			B = "The system is operating."
 			
-			(A⇒B)∧¬(¬A∧B)
-			simplify: (A⇒B)∧(B⇒A)
-			simplify: ¬(A≠B)
+				A⇒B
+				This case allows for the possibility that the
+				power switch is off but the system is operating.
+				clearly we can't have this, so it must be an iff.
+				i.e.:
+				(A⇒B)∧(B⇒A)
+				which simplifies to:
+				A=B
 		
 		(g) Where there's smoke, there's fire; and there's no smoke, so there's no fire.
 			A = "There is smoke."
 			B = "There is fire."
 			
-			(A⇒B)∧(¬A) ≡ ¬B
+				(A⇒B)∧(¬A) ⇒ ¬B
+				simplifies to:
+				(¬AvB)∧(¬A) ⇒ ¬B
+			≡	¬((¬AvB)∧(¬A))v¬B
+			≡	¬(¬AvB)vAv¬B
+			≡	(A∧¬B)v(Av¬B)
+			≡	Av(Av¬B) ∧ ¬Bv(Av¬B)
+			≡	(AvAv¬B)v(¬BvAv¬B)
+			≡	(Av¬B)v(Av¬B)
+			≡	Av¬B
+			≡	B⇒A
+				or A⇐B
 		
 		(h) Where there's smoke, there's fire; and there's no fire; so there's no smoke.
 			A = "There is smoke."
 			B = "There is fire."
 			
-			(A⇒B)∧(¬B) ≡ ¬A
-			(this evaluates to an antitheorem).
+				(A⇒B)∧(¬B) ⇒ ¬A
+				simplifies to:
+			≡	¬((¬AvB)∧(¬B))v¬A
+			≡	¬(¬AvB)vBv¬A
+			≡	(A∧¬B)v(Bv¬A)
+			≡	AvBv¬A ∧ ¬BvBv¬A
+			≡	B∧¬A
+			≡	A⇒B
+				
 		
 		(i) You can't score if you don't shoot.
 			A = "You score."
 			B = "You shoot."
 			
-			¬B⇒¬A
+				¬B⇒¬A
+				simplifies to:
+				A⇒B
 		
 		(j) If you have a key, only then can you open the door.
 			A = "You have a key."
 			B = "You can open the door"
 			
-			¬(A≠B)
-			or, (A⇒B)∧(B⇒A)
+				¬(A≠B)
+				or, (A⇒B)∧(B⇒A)
+				or, A=B
 		
 		(k) No pain, no gain.
-			A = "There is pain."
-			B = "There is gain."
+			A = "There is no pain."
+			B = "There is no gain."
 			
-			¬(A≠B)
-			or, (A⇒B)∧(B⇒A)
+				¬A⇒¬B
+				simplifies to:
+				B⇒A
+				or
+				A⇐B
 		
 		(l) No shirt? No shoes? No service!
 			A = "You have a shirt."
 			B = "You have shoes."
 			C = "You get service."
 			
-			A∧B∧C
+				¬Av¬B⇒¬C
+				simplifies to:
+				¬(¬Av¬B)v¬C
+			≡	(A∧B)v¬C
+			≡	C⇒(A∧B)
+				or
+				(A∧B)⇐C
 		
 		(m) If it happens, it happens.
 			A = "It happens"
 			
-			A=A
+				A⇒A
+				simplifies to:
+				T
 			
 	
 16 - (tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
@@ -408,5 +455,14 @@ Exercises
 		≡	T
 		
 		prof hehner's solution:
+		
+		abbreviations: p="I'm playing tennis.", w="I'm watching tennis.",
+		r="I'm reading about tennis."
+		
+		Given information is the first line of the proof: 
+		∧ ∨ ⇒ ⇐ = and ≠ ¬
+		
+			(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		contrapositive
+		≡	
 		
 		
