@@ -1,5 +1,6 @@
 Exercises
 
+10.0 - Preface
 0 - There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
 	Each card has a letter on one side and a digit on the other. Which card(s) do you need
 	to turn over to determine whether every card with a D on one side has a 3 on the other? Why?
@@ -22,43 +23,44 @@ Exercises
 			∧	(2=D ⇒ 2'=3)∧(2'=D ⇒ 2''=3)
 			∧	(3=D ⇒ 3'=3)∧(3'=D ⇒ 3''=3)
 		
-		Note that this expression should evaluate to T by our assumptions.
+		Note that this expression should evaluate to ⊤ by our assumptions.
 		Simplify this expression by using C''=C and that cards must have both letters and numbers.
 			
 				(D=D ⇒ D'=3)∧(D'=D ⇒ D''=3)
 			∧	(E=D ⇒ E'=3)∧(E'=D ⇒ E''=3)
 			∧	(2=D ⇒ 2'=3)∧(2'=D ⇒ 2''=3)
 			∧	(3=D ⇒ 3'=3)∧(3'=D ⇒ 3''=3)		
-		≡		(T ⇒ D'=3)∧(⊥ ⇒ ⊥)
+		≡		(⊤ ⇒ D'=3)∧(⊥ ⇒ ⊥)
 			∧	(⊥ ⇒ E'=3)∧(⊥ ⇒ ⊥)
 			∧	(⊥ ⇒ ⊥)∧(2'=D ⇒ ⊥)
-			∧	(⊥ ⇒ ⊥)∧(3'=D ⇒ T)	
-		≡		(T ⇒ D'=3)∧(T)
-			∧	(⊥ ⇒ E'=3)∧(T)
-			∧	(T)∧(2'=D ⇒ ⊥)
-			∧	(T)∧(3'=D ⇒ T)
-		≡		(T ⇒ D'=3)
+			∧	(⊥ ⇒ ⊥)∧(3'=D ⇒ ⊤)	
+		≡		(⊤ ⇒ D'=3)∧(⊤)
+			∧	(⊥ ⇒ E'=3)∧(⊤)
+			∧	(⊤)∧(2'=D ⇒ ⊥)
+			∧	(⊤)∧(3'=D ⇒ ⊤)
+		≡		(⊤ ⇒ D'=3)
 			∧	(⊥ ⇒ E'=3)
 			∧	(2'=D ⇒ ⊥)
-			∧	(3'=D ⇒ T)
+			∧	(3'=D ⇒ ⊤)
 		≡		⊥v(D'=3)
 			∧	Tv(E'=3)
 			∧	¬(2'=D)v⊥
-			∧	¬(3'=D)vT
+			∧	¬(3'=D)v⊤
 		≡		(D'=3)
-			∧	Tv(E'=3)
+			∧	⊤v(E'=3)
 			∧	¬(2'=D)
-			∧	¬(3'=D)vT
+			∧	¬(3'=D)v⊤
 		≡		(D'=3)
-			∧	Tv(E'=3)
+			∧	⊤v(E'=3)
 			∧	¬(2'=D)
-			∧	¬(3'=D)vT
+			∧	¬(3'=D)v⊤
 		≡		(D'=3)
-			∧	T
+			∧	⊤
 			∧	¬(2'=D)
-			∧	T
+			∧	⊤
 		≡		(D'=3)∧(2'≠D)
-		
+
+10.1 - Basic Theories
 2 - Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
 	and any laws listed in Section 11.4. Do not use the Completion Rule.
 	
@@ -67,12 +69,12 @@ Exercises
 				(a⇒c)∧(b⇒¬c)		conflation.
 			⇒	(a∧b)⇒(c∧¬c)		duality.
 			≡	¬(c∧¬c)⇒¬(a∧b)	antecedent is law of noncontradiction
-			≡	T⇒¬(a∧b)		identity for ⇒
+			≡	⊤⇒¬(a∧b)		identity for ⇒
 			≡	¬(a∧b)
 	
 	(m) - (a⇒¬a)⇒¬a
 	
-				T				indirect proof, instantiate, replacing a with ¬a
+				⊤				indirect proof, instantiate, replacing a with ¬a
 			≡	(¬¬a⇒¬a)=¬a			double negation
 			≡	(a⇒¬a)=¬a			antisymmetry (double implication)
 			≡	((a⇒¬a)⇒¬a)∧(¬a⇒(a⇒¬a))	specialization
@@ -80,13 +82,13 @@ Exercises
 	
 	(p) - a=b ∨ a=c ∨ b=c
 	
-				(((a=b)=T) v b=c) v a=c		Context (assumption).
+				(((a=b)=⊤) v b=c) v a=c		Context (assumption).
 			≡	((a=b)=(b≠c)) v a=c v b=c 	Context (in exp0vexp1, changing exp0 we assume ¬exp1).
 			≡	(a=(b=b)≠c) v a=c v b=c		Associative.
-			≡	(a=T)≠c v a=c v b=c		Reflexive.
+			≡	(a=⊤)≠c v a=c v b=c		Reflexive.
 			≡	(a≠c) v a=c v b=c 		Context.
 			≡	(a≠c) v a=c v ⊥ 		Context.
-			≡	T
+			≡	⊤
 			
 		alternate proof:
 				
@@ -95,13 +97,13 @@ Exercises
 			≡	(a=b v a=c) v (a=b)=(a=c)		main v distributes over =
 			≡	(a=b v a=c v a=b) = (a=b v a=c v a=c)	symmetry, assoc and idempotence of v twice
 			≡	(a=b v a=c) = (a=b v a=c)
-			≡	T
+			≡	⊤
 			
 	(s) - a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
 	
 				a⇒a∧b
 			≡	a⇒b			Discharge.
-			≡	a⇒b ∧ T		Context.
+			≡	a⇒b ∧ ⊤		Context.
 			≡	a⇒b ∧ (b⇒b)		Reflexive.
 			≡	a∧b ⇒ b∧b 		Conflation.
 			≡	a∧b ⇒ b		Idempotent.
@@ -111,7 +113,7 @@ Exercises
 				a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
 			≡	(a⇒a ∧ a⇒b) ≡ a⇒b ≡ (a⇒a ∧ a⇒b)		distrib ⇒ over ∧, antidistrib ⇒ over ∨
 			≡	a⇒b ≡ a⇒b ≡ a⇒b		reflexivity of ⇒ and identity of ∧, reflexivity of =
-			≡	T									
+			≡	⊤									
 			
 	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
 	
@@ -121,7 +123,7 @@ Exercises
 			≡	b∧c∧P v (b∧¬c v ¬b)∧Q			distribution
 			≡	b∧c∧P v (¬bv(b∧¬c))∧Q			symmetry
 			≡	b∧c∧P v ((¬bvb) ∧ (¬bv¬c))∧Q		distribution
-			≡	b∧c∧P v (T∧(¬bv¬c))∧Q			identity
+			≡	b∧c∧P v (⊤∧(¬bv¬c))∧Q			identity
 			≡	((b∧c)∧P) v ((¬bv¬c)∧Q)		case analysis
 			≡	if b∧c then P else Q fi
 			
@@ -136,11 +138,11 @@ Exercises
 	(iv)	≠⇒ab()
 	(v)     ¬if then else fi ab()
 
-		(a) (i)		T ≡ ¬(a∧¬a)
-			(ii)	T ≡ av¬a
-			(iii)	T ≡ a⇒a
-			(iv)	T ≡ a≠b⇒b≠a
-			(v)	T ≡ if a then a else ¬a fi
+		(a) (i)		⊤ ≡ ¬(a∧¬a)
+			(ii)	⊤ ≡ av¬a
+			(iii)	⊤ ≡ a⇒a
+			(iv)	⊤ ≡ a≠b⇒b≠a
+			(v)	⊤ ≡ if a then a else ¬a fi
 			
 		(b) (i)		⊥ ≡ a∧¬a
 			(ii)	⊥ ≡ ¬(av¬a)
@@ -199,7 +201,7 @@ Exercises
 				≡	(a∧b)v(¬a∧¬b)
 				≡	((a∧b)v¬a) ∧ ((a∧b)v¬b)
 				≡	(av¬a ∧ bv¬a) ∧ (av¬b ∧ bv¬b)
-				≡	(T ∧ bv¬a) ∧ (av¬b ∧ T)
+				≡	(⊤ ∧ bv¬a) ∧ (av¬b ∧ ⊤)
 				≡	(bv¬a) ∧ (av¬b)
 				≡	(a⇒b)∧(b⇒a)
 				≡	a=b
@@ -256,7 +258,7 @@ Exercises
 			proof of (v):
 					if a then b else ¬a fi
 				≡	(a⇒b)∧(¬a⇒¬a)
-				≡	(a⇒b)∧T
+				≡	(a⇒b)∧⊤
 				≡	a⇒b
 	
 12 - Formalize each of the following statements as a binary expression.
@@ -395,7 +397,7 @@ Exercises
 			
 				A⇒A
 				simplifies to:
-				T
+				⊤
 			
 	
 16 - (tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
@@ -414,11 +416,11 @@ Exercises
 		We show that (¬A⇒B)∧(¬B⇒C) is false when we assume C is true while A and B are false.
 		
 			(¬A⇒B)∧(¬B⇒C)		
-		≡	(¬(A=⊥)⇒(B=⊥)∧(¬(B=⊥)⇒(C=T)))	context.
-		≡	(¬⊥⇒⊥ ∧(¬⊥⇒T))					
-		≡	(⊥v⊥ ∧ ⊥vT)				M.I.
-		≡	(⊥ ∧ ⊥vT)				Identity.
-		≡	(⊥∧⊥ v ⊥∧T)				Distribution.
+		≡	(¬(A=⊥)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊤)))	context.
+		≡	(¬⊥⇒⊥ ∧(¬⊥⇒⊤))					
+		≡	(⊥v⊥ ∧ ⊥v⊤)				M.I.
+		≡	(⊥ ∧ ⊥v⊤)				Identity.
+		≡	(⊥∧⊥ v ⊥∧⊤)				Distribution.
 		≡	(⊥ v ⊥)				Identity.
 		≡	⊥
 		
@@ -434,11 +436,11 @@ Exercises
 		For the first case:
 		
 			(¬A⇒B)∧(¬B⇒C)		
-		≡	(¬(A=T)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊥)))	context.
-		≡	(¬T⇒⊥ ∧(¬⊥⇒⊥))
-		≡	(Tv⊥ ∧ ⊥v⊥)				M.I.
-		≡	(Tv⊥ ∧ ⊥)				Identity.
-		≡	(T∧⊥ v ⊥∧⊥)				Distribution.
+		≡	(¬(A=⊤)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊥)))	context.
+		≡	(¬⊤⇒⊥ ∧(¬⊥⇒⊥))
+		≡	(⊤v⊥ ∧ ⊥v⊥)				M.I.
+		≡	(⊤v⊥ ∧ ⊥)				Identity.
+		≡	(⊤∧⊥ v ⊥∧⊥)				Distribution.
 		≡	(⊥ v ⊥)				Identity.
 		≡	⊥
 		
@@ -447,12 +449,12 @@ Exercises
 		For brevity, we prove it:
 		
 			(¬A⇒B)∧(¬B⇒C)		
-		≡	(¬(A=⊥)⇒(B=T)∧(¬(B=T)⇒(C=⊥)))	context.
-		≡	(¬⊥⇒T ∧(¬T⇒⊥))					
-		≡	(⊥vT ∧ Tv⊥)				M.I.
-		≡	⊥v(T∧T)				Distribution.
-		≡	⊥vT					Identity
-		≡	T
+		≡	(¬(A=⊥)⇒(B=⊤)∧(¬(B=⊤)⇒(C=⊥)))	context.
+		≡	(¬⊥⇒⊤ ∧(¬⊤⇒⊥))					
+		≡	(⊥v⊤ ∧ ⊤v⊥)				M.I.
+		≡	⊥v(⊤∧⊤)				Distribution.
+		≡	⊥v⊤					Identity
+		≡	⊤
 		
 		prof hehner's solution:
 		
@@ -492,6 +494,70 @@ Exercises
 		
 		
 		
+
+
+10.2 - Basic Data Structures
+41. For naturals n and m, we can express the statement "n is a factor of m"
+	formally as follows: m:n×nat
+	
+	(a) What are the factors of 0?
+	(b) What is 0 a factor of?
+	(c) What are the factors of 1?
+	(d) What is 1 a factor of?
+	
+44.	(von Neumann numbers)
+	(a) Is there any harm in adding the axioms:
+			0 = {null}	the empty set
+			n+1 = {n,~n}	for each natural n
+	
+	(b) What correspondence is induced by these axioms between the arithmetic
+		operations and the set operations?
 		
-		
-		
+	(c) Is there any harm in adding the axioms:
+			0 = {null}	the empty set
+			i+1 = {i,~i}	for each integer i
+			
+53.	Simplify (no proof)
+	
+	(a)	0→1|1→2|2→3|3→4|4→5|[0;..5]
+	(b)	(4→2 | [-3;..3])3
+	(c)	((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
+	(d)	([0;..5][3;4])1
+	(e)	(2;2)→"j"|[["abc"];["de"];["fghi"]]
+	(f)	#nat
+	(g)	#[*3]
+	(h)	[3;4]:[3*4*int]
+	(i)	[3;4]:[3;int]
+	(j)	[3,4;5]:[2*int]
+	(k)	[(3,4);5]:[2*int]
+	(l)	[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
+	
+
+10.3 - Function Theory
+
+55.	In each of the following, replace p by:
+		〈x:int→〈y:int〈z:int〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉
+	and simplify, assuming x,y,z,u,w:int.
+	
+	(a)	p(x+y)(2×u+w)z
+	(b)	p(x+y)(2×u+w)
+	(c)	p(x+z)(y+y)(2+z)
+	
+63. (whodunit) Here are ten statements:
+	(i) Some criminal robbed the Russell mansion
+	(ii) Whoever robbed the Russell mansion either had an accomplice
+		among the servants or had to break in.
+	(iii) To break in, one would have to either smash the door or pick
+		the lock.
+	(iv) Only an expert locksmith could pick the lock.
+	(v) Anyone smashing the door would have been heard.
+	(vii) No one could rob the Russell mansion without fooling the guard.
+	(viii) To fool the guard, one must be a convincing actor.
+	(ix) No criminal could be both an expert locksmith and a convincing
+		actor.
+	(x) Some criminal had an accomplice among the servants.
+	
+		(a) Choosing good abbreviations, translate each of these statements
+			into formal logic.
+
+		(b) Taking the first nine statements as axioms, prove the tenth.
