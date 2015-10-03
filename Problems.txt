@@ -66,16 +66,16 @@ Exercises
 		
 				(a⇒c)∧(b⇒¬c)		conflation.
 			⇒	(a∧b)⇒(c∧¬c)		duality.
-			≡	¬(c∧¬c)⇒¬(a∧b)		antecedent is law of noncontradiction
-			≡	T⇒¬(a∧b)			identity for ⇒
+			≡	¬(c∧¬c)⇒¬(a∧b)	antecedent is law of noncontradiction
+			≡	T⇒¬(a∧b)		identity for ⇒
 			≡	¬(a∧b)
 	
 	(m) - (a⇒¬a)⇒¬a
 	
-				T					indirect proof, instantiate, replacing a with ¬a
+				T				indirect proof, instantiate, replacing a with ¬a
 			≡	(¬¬a⇒¬a)=¬a			double negation
 			≡	(a⇒¬a)=¬a			antisymmetry (double implication)
-			≡	((a⇒¬a)⇒¬a)∧(¬a⇒(a⇒¬a))		specialization
+			≡	((a⇒¬a)⇒¬a)∧(¬a⇒(a⇒¬a))	specialization
 			⇒	((a⇒¬a)⇒¬a)			
 	
 	(p) - a=b ∨ a=c ∨ b=c
