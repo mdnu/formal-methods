@@ -463,6 +463,35 @@ Exercises
 		∧ ∨ ⇒ ⇐ = and ≠ ¬
 		
 			(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		contrapositive
-		≡	
+		≡	(¬p⇒w)∧(¬r⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		antidistributive
+		≡	(¬pv¬r)⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)			duality
+		≡	(¬(p∧r))⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		discharge
+		≡	w∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)				use w to simplify
+		≡	w∧¬p∧¬(p∧r)∧¬r						use ¬p and then ¬r to simplify
+		≡	w∧¬p∧¬r								specialize
+		⇒	¬r
+		
+		if we interpret the second sentence as "and if I'm not also watching
+		tennis, I'm reading about tennis", then we formalize this as:
+		¬p∧¬w⇒r, and we have another deduction:
+		
+			(¬p⇒w)∧(¬p∧¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)	portation
+		≡	(¬p⇒w)∧(¬p⇒(¬w⇒r))∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		distribution
+		≡	(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		use context w
+		≡	(¬p⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		
+		≡	¬p=w ∧ ¬(p∧r)∧¬(r∧w)
+		≡	¬p=w ∧ ¬(p∧r)∧¬(r∧¬p)
+		≡	p≠w ∧ ¬r
+		⇒	¬r							specialize.
+		
+		In either case, we get ¬r.
+		
+		As for what the speaker is doing:
+		Look at the second-last line from the first interpretation:
+		w∧¬p∧¬r,and hence the speaker is watching tennis.
+		
+		
+		
+		
 		
 		
