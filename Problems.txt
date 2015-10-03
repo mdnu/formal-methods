@@ -1,6 +1,7 @@
 Exercises
 
 10.0 - Preface
+
 0 - There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
 	Each card has a letter on one side and a digit on the other. Which card(s) do you need
 	to turn over to determine whether every card with a D on one side has a 3 on the other? Why?
@@ -61,6 +62,7 @@ Exercises
 		≡		(D'=3)∧(2'≠D)
 
 10.1 - Basic Theories
+
 2 - Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
 	and any laws listed in Section 11.4. Do not use the Completion Rule.
 	
@@ -497,8 +499,9 @@ Exercises
 
 
 10.2 - Basic Data Structures
-41. For naturals n and m, we can express the statement "n is a factor of m"
-	formally as follows: m:n×nat
+
+41. For naturals n and m, we can express the statement "n is a factor of m" formally as follows: 
+	m:n×nat
 	
 	(a) What are the factors of 0?
 	(b) What is 0 a factor of?
@@ -510,8 +513,7 @@ Exercises
 			0 = {null}	the empty set
 			n+1 = {n,~n}	for each natural n
 	
-	(b) What correspondence is induced by these axioms between the arithmetic
-		operations and the set operations?
+	(b) What correspondence is induced by these axioms between the arithmetic operations and the set operations?
 		
 	(c) Is there any harm in adding the axioms:
 			0 = {null}	the empty set
@@ -545,19 +547,15 @@ Exercises
 	
 63. (whodunit) Here are ten statements:
 	(i) Some criminal robbed the Russell mansion
-	(ii) Whoever robbed the Russell mansion either had an accomplice
-		among the servants or had to break in.
-	(iii) To break in, one would have to either smash the door or pick
-		the lock.
+	(ii) Whoever robbed the Russell mansion either had an accomplice among the servants or had to break in.
+	(iii) To break in, one would have to either smash the door or pick the lock.
 	(iv) Only an expert locksmith could pick the lock.
 	(v) Anyone smashing the door would have been heard.
 	(vii) No one could rob the Russell mansion without fooling the guard.
 	(viii) To fool the guard, one must be a convincing actor.
-	(ix) No criminal could be both an expert locksmith and a convincing
-		actor.
+	(ix) No criminal could be both an expert locksmith and a convincing actor.
 	(x) Some criminal had an accomplice among the servants.
 	
-		(a) Choosing good abbreviations, translate each of these statements
-			into formal logic.
+		(a) Choosing good abbreviations, translate each of these statements into formal logic.
 
 		(b) Taking the first nine statements as axioms, prove the tenth.
