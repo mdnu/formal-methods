@@ -140,31 +140,31 @@ Exercises
 			(ii)	T ≡ av¬a
 			(iii)	T ≡ a⇒a
 			(iv)	T ≡ a≠b⇒b≠a
-			(v)		T ≡ if a then a else ¬a fi
+			(v)	T ≡ if a then a else ¬a fi
 			
 		(b) (i)		⊥ ≡ a∧¬a
 			(ii)	⊥ ≡ ¬(av¬a)
 			(iii)	⊥ ≡ ¬(a⇒a)
 			(iv)	⊥ ≡ a≠a
-			(v)		⊥ ≡ if a then ¬a else a fi
+			(v)	⊥ ≡ if a then ¬a else a fi
 		
 		(c) (i)		¬a ≡ ¬a
 			(ii)	¬a ≡ ¬a
 			(iii)	¬a ≡ ¬a
 			(iv)	¬a ≡ a⇒a≠a
-			(v)		¬a ≡ ¬a
+			(v)	¬a ≡ ¬a
 		
 		(d) (i)		a∧b ≡ a∧b
 			(ii)	a∧b ≡ ¬(¬av¬b)
 			(iii)	a∧b ≡ ¬(a⇒¬b)
 			(iv)	a∧b ≡ (a⇒(a≠b))⇒(a≠a)			**
-			(v)		a∧b ≡ if a then b else a fi
+			(v)	a∧b ≡ if a then b else a fi
 		
 		(e) (i)		avb ≡ ¬(¬a∧¬b)
 			(ii)	avb ≡ avb
 			(iii)	avb ≡ ¬a⇒b
 			(iv)	avb ≡ (a⇒(a≠a))⇒b				**
-			(v)		avb ≡ if a then a else b fi
+			(v)	avb ≡ if a then a else b fi
 			
 			proof of (v):
 					if a then a else b fi
@@ -178,7 +178,7 @@ Exercises
 			(ii)	a=b ≡ ¬(¬av¬b)v¬(avb)
 			(iii)	a=b ≡ ¬((a⇒b)⇒¬(b⇒a))
 			(iv)	a=b ≡ (a≠b)⇒(a≠a)
-			(v)		a=b ≡ if a then b else ¬b fi
+			(v)	a=b ≡ if a then b else ¬b fi
 			
 			proof of (iii):
 					¬((a⇒b)⇒¬(b⇒a))
@@ -208,7 +208,7 @@ Exercises
 			(ii)	a≠b ≡ ¬(av¬b)v¬(¬avb)
 			(iii)	a≠b ≡ (a⇒b)⇒¬(b⇒a)
 			(iv)	a≠b ≡ a≠b
-			(v)		a≠b ≡ if a then ¬b else b fi
+			(v)	a≠b ≡ if a then ¬b else b fi
 			
 			proof of (i):
 					(¬(a∧b)∧¬(¬a∧¬b))
@@ -251,7 +251,7 @@ Exercises
 			(ii)	a⇒b ≡ ¬avb
 			(iii)	a⇒b ≡ a⇒b
 			(iv)	a⇒b ≡ a⇒b
-			(v)		a⇒b ≡ if a then b else ¬a fi
+			(v)	a⇒b ≡ if a then b else ¬a fi
 			
 			proof of (v):
 					if a then b else ¬a fi
@@ -465,17 +465,17 @@ Exercises
 			(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		contrapositive
 		≡	(¬p⇒w)∧(¬r⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		antidistributive
 		≡	(¬pv¬r)⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)			duality
-		≡	(¬(p∧r))⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		discharge
+		≡	(¬(p∧r))⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)			discharge
 		≡	w∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)				use w to simplify
-		≡	w∧¬p∧¬(p∧r)∧¬r						use ¬p and then ¬r to simplify
-		≡	w∧¬p∧¬r								specialize
+		≡	w∧¬p∧¬(p∧r)∧¬r					use ¬p and then ¬r to simplify
+		≡	w∧¬p∧¬r						specialize
 		⇒	¬r
 		
 		if we interpret the second sentence as "and if I'm not also watching
 		tennis, I'm reading about tennis", then we formalize this as:
 		¬p∧¬w⇒r, and we have another deduction:
 		
-			(¬p⇒w)∧(¬p∧¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)	portation
+			(¬p⇒w)∧(¬p∧¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		portation
 		≡	(¬p⇒w)∧(¬p⇒(¬w⇒r))∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		distribution
 		≡	(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		use context w
 		≡	(¬p⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		
