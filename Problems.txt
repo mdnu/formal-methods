@@ -464,7 +464,6 @@ Exercises
 		r="I'm reading about tennis."
 		
 		Given information is the first line of the proof: 
-		∧ ∨ ⇒ ⇐ = and ≠ ¬
 		
 			(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		contrapositive
 		≡	(¬p⇒w)∧(¬r⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		antidistributive
@@ -538,9 +537,15 @@ Exercises
 	
 	(a)	0→1|1→2|2→3|3→4|4→5|[0;..5]
 	
-		
+			0→1|1→2|2→3|3→4|4→5|[0;..5]
+		≡	[1;2;3;4;5]	
 	
 	(b)	(4→2 | [-3;..3])3
+		
+			(4→2 | [-3;..3])3
+		≡	([-3;-2;-1;0;2;2])3
+		≡	0
+		
 	(c)	((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
 	(d)	([0;..5][3;4])1
 	(e)	(2;2)→"j"|[["abc"];["de"];["fghi"]]
@@ -549,10 +554,26 @@ Exercises
 	(h)	[3;4]:[3*4*int]
 	(i)	[3;4]:[3;int]
 	(j)	[3,4;5]:[2*int]
+	
+			[3,4;5]:[2*int]
+		≡	[3],[4;5]:[int,int]
+		⇒	#([3],[4;5]):#[int,int]
+		≡	1,2 : 2
+		≡	1:2 ∧ 2:2
+		≡	⊥∧⊤
+		≡	⊥
+		
 	(k)	[(3,4);5]:[2*int]
+		
+			[(3,4);5]:[2*int]
+		≡	[(3;5),(4;5)]:[int,int]
+		≡	[(3;5)],[(4;5)]:[int,int]
+		⇐	[int,int],[int,int]:[int,int]
+		≡	⊤
+		
 	(l)	[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
 	
-
+∧ ∨ ⇒ ⇐ = and ≠ ¬
 10.3 - Function Theory
 
 55.	In each of the following, replace p by:
