@@ -12,13 +12,16 @@ Binary Theory
 ===
 
 Convention we employ:
+
 	'Theorems' are 'Tautologies'.
 	'Antitheorems' are 'Contradictions'.
 
 Our logical connectives
+
 	¬ ∧ v ⇒ ⇐ = and ≠. 
 	
 For completion, the truth table used is this:
+
 		| TT | T⊥ | ⊥T | ⊥⊥|
 	---------------------------
 	| ∧|    T|   ⊥|  ⊥|   ⊥|
