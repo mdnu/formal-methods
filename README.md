@@ -276,17 +276,174 @@ Context Rules
 	
 	
 ===
-Number-syntactic theory.
+Number-expression theory.
 ===
 	
 	called 'number theory' in the text, not the same as number theory.
 	Everything here is standard.
 	
+		∞ 						“infinity”
+		-x 						“minus x”
+		x+y 					“x plus y”
+		x–y 					“x minus y”
+		x×y 					“x times y”
+		x/y 					“x divided by y”
+		x^y 					“x to the power y”
+		if a then x else y fi
+
+	New ways of forming binary expressions using number:
+	
+		x<y 					“x is less than y”
+		x≤y 					“x is less than or equal to y”
+		x>y 					“x is greater than y”
+		x≥y 					“x is greater than or equal to y”
+		x=y 					“x equals y”, “x is equal to y”
+		x≠y 					“x differs from y”, “x is unequal to y”
+	
+	Axioms:
+	
+		-∞ ≤ x ≤ ∞ 				extremes
+		-∞ < x ⇒ ∞+x = ∞ 		absorption
+		
+	Number-expression theory is incomplete.
+	i.e.: 1/0 = 5 and 0<(-1)^(1/2) in this 'theory' can neither be proven nor disproven.
+	
+===
+Character-expression theory.
+===
+
+	Characters enclosed by left and right double-quotes.
+	Contains operators 'succ' and 'pred', for successor and predecessor resp.
+	Also contains = ≠ < ≤ > ≥ if then else fi
+	
+All our theories contain = ≠ if then else fi, so their laws are listed 'generic' in text.
+
+===
+Basic Data Structures
+===
+
+				Unindexed	Indexed
+	Unpackaged	- Bunch		- String
+	Packaged	- Set		- List
 
 ===
 'Bunch'-data Theory
 ===
+a collection of objects. unpackaged, unindexed.
+This is the 'simplest' data structure in our language.
 	
+Note - "package" just means set. hence a bunch would be the singletons of some
+"package" set without regard for the set. Equivalently, and in being formal, we
+could consuder bunches simply as elements in our language that are not contained
+in a set. In mathematics, you'd normally consider every object to be contained in
+some set, or objects being defined as some set with some properties. In our present
+context, we'll have to abandon this notion and adopt a formalist perspective.
+	
+	Any number, character, binary value or set is an 'elementary bunch'/'element'.
+
+	Unions of bunches is represented by a comma:
+		A,B is the bunch of elements from A or B.
+		
+	Intersections of bunches is rep. by an apostrophe:
+		A'B is the bunch of elements from A and B.
+		
+	¢A is the cardinality of A.
+	
+	A is a subset of B is represented by:
+		A: B
+
+Axioms that describe bunches:
+	
+	x:y = x=y				- elementary axiom
+	x: A,B = x:A ∨ x:B		- compound axiom
+	A,A = A					- idempotent
+	A,B = B,A 				- symmetry	
+	A,(B,C) = (A,B),C 		- associativity
+	A'A = A 				- symmetry
+	A'B = B'A 				- symmetry
+	A'(B'C) = (A'B)'C 		- associativity
+	A,B:C = A:C ∧ B:C 		- antidistributivity
+	A: B'C = A:B ∧ A:C 		- distributivity
+	A:A,B 					- generalization
+	A'B:A 					- specialization
+
+this is all basic set theory.
+	
+	A: A 							- reflexivity
+	A:B ∧ B:A = A=B					- antisymmetry
+	A:B ∧ B:C ⇒ A:C					- transitivity
+	
+recall that any relation that is reflexive, transitive
+and antisymmetric is called a 'partial-ordering', or 'ordering'.
+	
+	¢x = 1 							- size
+	¢(A,B) + ¢(A'B) = ¢(A)+¢(B)		- size
+	¬x:A ⇒ ¢(A'x)=0					- size
+	A:B ⇒ ¢A ≤ ¢B					
+	
+again, these are all trivial.
+	
+From these, we have some laws: (Theorems derived from the above axioms)
+
+	A,(A'B) = A 					- absorption
+	A'(A,B) = A 					- absorption
+	A:B ⇒ C,A: C,B 					- monotonicity
+	A:B ⇒ C'A: C'B 					- monotonicity
+	A:B = (A,B = B) = (A = A'B)		- inclusion
+	A,(B,C) = (A,B),(A,C)			- distributivity
+	A,(B,C) = (A,B),(A,C)			- distributivity
+	A'(B,C) = (A'B),(A'C)			- distributivity
+	A'(B'C) = (A'B),(A'C)			- distributivity
+	A:B ∧ C:D ⇒ A,C:B,D				- conflation
+	A:B ∧ C:D ⇒ A'C:B'D				- conflation
+	
+Bunches that have special names: (i.e. we'll be using them a lot)
+
+	null 							- the empty bunch
+	bin = T⊥						- the binary values
+	nat = 0,1,2,...					- 'natural' numbers (shouldn't include 0, but w/e)
+	int = ...-2,-1,0,1,2...			- integers
+	rat = ...-1,0,2/3,...			- rationals
+	real = ..., 2^(1/2),...			- reals
+	xnat = 0,1,2,..., ∞				- extended naturals
+	xint = -∞,...int...,∞			- extended integers
+	xrat = -∞,...rat...,∞			- extended rationals
+	xreal = -∞, ... ,∞				- extended reals
+	char = ...,"a", "A", ...		- character values
+	
+An added convention:
+	
+	x,...y 	means "x to y" only for x:int and y:xint for x≤y
+						this is equivalent to [x,y) ‎⊂ Z
+						so i:x,...y  =  x‎≤i<y (This is an axiom in our FL).
+	
+	¢(x,...y) = y-x
+	
+
+Meta-Properties of "Bunch" Theory.
+
+Most operators distribute over bunches. 
+example: -(1,3,7) = -1,-3, -7. 
+
+Bunches under the binary operation + has the sum operation behave like multiplication
+over the parentheses. i.e:
+	
+	(1,2) + (10,20) = 11, 12, 21, 22.
+	(1,2) + 10 = 11, 12
+	1 + 10 = 11
+	null + 10 = null
+	
+Notice above that null behaves like '0' under '+' behaving like multiplication. 
+The only case that stands out is the third, where + actually does behave like addition
+that's because the 'bunches' here are singletons. To illustrate, let's perform
+the analogous operation: (1,0)+(10,0) = 11,0,0,0. Simplify and you'll get 1+10=11.
+
+Distributivity lets us define sets rather nicely:
+
+	nat+2 = 2,3,4,5,6,...
+	nat×2 = 0,2,4,6,8,...
+	nat^2 = 0,1,4,9,16,...
+	2^nat = 1,2,4,8,16,...
 ===
 'Set'-data Theory
 ===

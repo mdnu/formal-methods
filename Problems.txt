@@ -504,24 +504,42 @@ Exercises
 	m:n×nat
 	
 	(a) What are the factors of 0?
+		itself. 0, such that 0:0×nat
+		
 	(b) What is 0 a factor of?
+		itself. 0, such that 0:0×nat
+		
 	(c) What are the factors of 1?
+		itself. 1, such that 1:1×nat
+		
 	(d) What is 1 a factor of?
+		every natural number: m:1×nat = m:nat
 	
 44.	(von Neumann numbers)
 	(a) Is there any harm in adding the axioms:
 			0 = {null}	the empty set
 			n+1 = {n,~n}	for each natural n
 	
+			Notice that for n=0, 0+1 = {{null},~{null}} = {{null},null} = 1, and so on.
+			There seems to be no harm in adding these axioms.
+	
 	(b) What correspondence is induced by these axioms between the arithmetic operations and the set operations?
+		
+			An isomorphism.
 		
 	(c) Is there any harm in adding the axioms:
 			0 = {null}	the empty set
 			i+1 = {i,~i}	for each integer i
 			
-53.	Simplify (no proof)
+			Yes. Simply take the case i=-1, which would imply:
+			-1+1 = 0 = {-1, ~(-1)}, but ~(-1) is not defined in this context.
+			
+53.	Simplify (no proof) - well, add proof anyways.
 	
 	(a)	0→1|1→2|2→3|3→4|4→5|[0;..5]
+	
+		
+	
 	(b)	(4→2 | [-3;..3])3
 	(c)	((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
 	(d)	([0;..5][3;4])1
