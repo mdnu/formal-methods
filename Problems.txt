@@ -2,7 +2,7 @@ Exercises
 
 10.0 - Preface
 
-0 - There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
+0 	- There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
 	Each card has a letter on one side and a digit on the other. Which card(s) do you need
 	to turn over to determine whether every card with a D on one side has a 3 on the other? Why?
 	
@@ -63,7 +63,7 @@ Exercises
 
 10.1 - Basic Theories
 
-2 - Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
+2 	- Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
 	and any laws listed in Section 11.4. Do not use the Completion Rule.
 	
 	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
@@ -131,7 +131,7 @@ Exercises
 			
 			
 		
-5 - Complete the following laws of Binary Theory 
+5 	- Complete the following laws of Binary Theory 
 	by adding a right side using only the following symbols (in any quantity)
 	
 	(i) 	¬∧ab()
@@ -263,7 +263,7 @@ Exercises
 				≡	(a⇒b)∧⊤
 				≡	a⇒b
 	
-12 - Formalize each of the following statements as a binary expression.
+12 	- Formalize each of the following statements as a binary expression.
 	Start by staying as close as possible to the English, then simplify as much as possible
 	(sometimes no simplification is possible). You will have to introduce new basic binary
 	expressions like (the door can be opened) for parts that cannot make use of binary operators,
@@ -402,7 +402,7 @@ Exercises
 				⊤
 			
 	
-16 - (tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
+16 	- (tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
 	tennis. And if I'm not watching tennis, I'm reading about tennis.". Assuming the speaker cannot
 	do more than one of these activities at a time,
 	
@@ -499,8 +499,8 @@ Exercises
 
 10.2 - Basic Data Structures
 
-41. For naturals n and m, we can express the statement "n is a factor of m" formally as follows: 
-	m:n×nat
+41 	- For naturals n and m, we can express the statement "n is a factor of m" formally as follows: 
+		m:n×nat
 	
 	(a) What are the factors of 0?
 		itself. 0, such that 0:0×nat
@@ -514,7 +514,8 @@ Exercises
 	(d) What is 1 a factor of?
 		every natural number: m:1×nat = m:nat
 	
-44.	(von Neumann numbers)
+44 	- (von Neumann numbers)
+
 	(a) Is there any harm in adding the axioms:
 			0 = {null}	the empty set
 			n+1 = {n,~n}	for each natural n
@@ -533,7 +534,7 @@ Exercises
 			Yes. Simply take the case i=-1, which would imply:
 			-1+1 = 0 = {-1, ~(-1)}, but ~(-1) is not defined in this context.
 			
-53.	Simplify (no proof) - well, add proof anyways.
+53 	- Simplify (no proof) - well, add proof anyways.
 	
 	(a)	0→1|1→2|2→3|3→4|4→5|[0;..5]
 	
@@ -547,12 +548,55 @@ Exercises
 		≡	0
 		
 	(c)	((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
+	
+			((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
+		≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
+		≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
+		≡	(3→(2→[10;..15]|[5;..10])|[0;1;2;[5;..10];4])3
+		≡	(3→([5;6;[10;..15];7;8;9;10])|[0;1;2;[5;..10];4])3
+		≡	([0;1;2;[5;6;[10;..15];7;8;9;10];4])3
+		≡	[5;6;[10;..15];7;8;9;10]
+	
 	(d)	([0;..5][3;4])1
+	
+			([0;..5][3;4])1
+		≡	([3;4])1
+		≡	4
+	
 	(e)	(2;2)→"j"|[["abc"];["de"];["fghi"]]
+		
+			(2;2)→"j"|[["abc"];["de"];["fghi"]]
+		≡	2→(2→"j"|["fghi"])|[["abc"];["de"];["fghi"]]
+		≡	2→["fgji"]|[["abc"];["de"];["fghi"]]
+		≡	[["abc"];["de"];["fgji"]]
+	
 	(f)	#nat
+	
+			#nat
+		≡	∞
+		
 	(g)	#[*3]
+				
+			#[*3]	
+		≡	#[nat*3]
+		≡	∞
+	
 	(h)	[3;4]:[3*4*int]
+	
+			[3;4]:[3*4*int]
+		≡	[3;4]:[3*4*int]
+		≡	[3;4]:[[int,int,int,int],[int,int,int,int],[int,int,int,int]]
+		⇒	#([3;4]):#([[int,int,int,int],[int,int,int,int],[int,int,int,int]])
+		≡	2 : 12
+		≡	⊥
+		
 	(i)	[3;4]:[3;int]
+	
+			[3;4]:[3;int]
+		⇒	#([3;4]):#([3;int])
+		≡	2 : 2
+		≡	⊤
+		
 	(j)	[3,4;5]:[2*int]
 	
 			[3,4;5]:[2*int]
@@ -573,18 +617,43 @@ Exercises
 		
 	(l)	[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
 	
-∧ ∨ ⇒ ⇐ = and ≠ ¬
+			[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
+		≡	[(3;4),(3;5);6;(7,8,9)]'[3;(4;5),(4;6);(7,8)]
+		≡	[(3;4),(3;5;6);(7,8,9)]'[(3;4;5),(4;6;7),(4;6;8)]
+		≡	[(3;4),(3;5;6;7),(3;5;6;8),(3;5;6;9)]'[(3;4;5),(4;6;7),(4;6;8)]
+		≡	null
+		
 10.3 - Function Theory
 
-55.	In each of the following, replace p by:
-		〈x:int→〈y:int〈z:int〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉
-	and simplify, assuming x,y,z,u,w:int.
+55	 - In each of the following, replace p by:
+		〈x:int→〈y:int→〈z:int→x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉
+		and simplify, assuming x,y,z,u,w:int.
 	
 	(a)	p(x+y)(2×u+w)z
+			
+			〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)z
+		≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀c: int·c^2 ≤b ⇒ c≤a〉〉〉(x+y)(2×u+w)z
+		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉〉〉
+		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉〉〉
+		≡	〈x,y,z,u,w:int → x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉
+		
 	(b)	p(x+y)(2×u+w)
-	(c)	p(x+z)(y+y)(2+z)
 	
-63. (whodunit) Here are ten statements:
+			〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)
+		≡	〈a:int→〈b:int→〈z:int→〈a≥0 ∧ a^2 ≤b ∧ ∀z: int·z^2 ≤b ⇒ z≤a〉〉〉(x+y)(2×u+w)
+		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉〉〉
+		≡	〈x,y,z,u,w:int → x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉
+		
+	(c)	p(x+z)(y+y)(2+z)
+		
+			〈x:int→〈y:int→〈z:int→x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+z)(y+y)(2+z)
+		≡	〈a:int→〈b:int→〈c:int→a≥0 ∧ a^2 ≤b ∧ ∀c: int·c^2 ≤b ⇒ c≤a〉〉〉(x+z)(y+y)(2+z)
+		≡	〈x+d:int→〈y+y:int→〈c:int→x+d≥0 ∧ (x+d)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+d)〉〉〉(2+z)
+		≡	〈x+d:int→〈y+y:int→〈c:int→x+d≥0 ∧ (x+d)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+d)〉〉〉(2+z)
+		≡	〈x+z+2:int→〈y+y:int→〈c:int→x+z+2≥0 ∧ (x+z+2)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+z+2)〉〉〉
+		≡	〈x,y,z,u,w,c:int → x+z+2≥0 ∧ (x+z+2)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+z+2)〉
+		
+63 	- (whodunit) Here are ten statements:
 	(i) Some criminal robbed the Russell mansion
 	(ii) Whoever robbed the Russell mansion either had an accomplice among the servants or had to break in.
 	(iii) To break in, one would have to either smash the door or pick the lock.
@@ -596,5 +665,133 @@ Exercises
 	(x) Some criminal had an accomplice among the servants.
 	
 		(a) Choosing good abbreviations, translate each of these statements into formal logic.
-
+				
+				Abbreviations:
+					C(x) : x is a criminal.
+					R(x) : x robbed the Russell mansion.
+					S(x) : x had an accomplice among the servants.
+					B(x) : x broke in.
+					D(x) : x smashed the door.
+					P(x) : x picked the lock.
+					L(x) : x is an expert locksmith.
+					H(x) : x was heard.
+					F(x) : x fooled the guard.
+					A(x) : x is a convincing actor.
+				
+				Formalizations: 
+				(i) Some criminal robbed the Russell mansion
+					∃x·C(x)∧R(x)
+					
+				(ii) Whoever robbed the Russell mansion either had an accomplice among the servants or had to break in.
+					∀x·R(x)⇒(S(x)∨B(x))
+				
+				(iii) To break in, one would have to either smash the door or pick the lock.
+					∀x·B(x)⇒(D(x)∨P(x))
+				
+				(iv) Only an expert locksmith could pick the lock.
+					∀x·P(x)=L(x)
+				
+				(v) Anyone smashing the door would have been heard.
+					∀x·D(x)⇒H(x)
+				
+				(vii) No one could rob the Russell mansion without fooling the guard.
+					¬∃x·R(x)∧¬F(x)
+				
+				(viii) To fool the guard, one must be a convincing actor.
+					∀x·A(x)⇒F(x)
+				
+				(ix) No criminal could be both an expert locksmith and a convincing actor.
+					¬∃x·C(x)∧L(x)∧A(x)
+				
+				(x) Some criminal had an accomplice among the servants.
+					∃x·C(x)∧S(x)
+		
 		(b) Taking the first nine statements as axioms, prove the tenth.
+		
+				Axioms:
+							∃x·C(x)∧R(x)
+						∧	∀x·R(x)⇒(S(x)∨B(x))
+						∧	∀x·B(x)⇒(D(x)∨P(x))
+						∧	∀x·P(x)=L(x)
+						∧	∀x·D(x)⇒H(x)
+						∧	¬∃x·R(x)∧¬F(x)
+						∧	∀x·A(x)⇒F(x)
+						∧	¬∃x·C(x)∧L(x)∧A(x)
+					
+					⇒		∃x·C(x) ∧ ∃x·R(x)		splitting laws.
+						∧	∃x·R(x)⇒∃x·(S(x)∨B(x))
+						∧	∃x·B(x)⇒∃x·(D(x)∨P(x))
+						∧	∃x·P(x)=∃x·L(x)
+						∧	∃x·D(x)⇒∃x·H(x)
+						∧	¬∃x·R(x)∧¬F(x)
+						∧	∃x·A(x)⇒∃x·F(x)
+						∧	¬∃x·C(x)∧L(x)∧A(x)
+						
+					≡		∃x·C(x) ∧ ∃x·R(x)		splitting laws.
+						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
+						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
+						∧	∃x·P(x)=∃x·L(x)
+						∧	∃x·D(x)⇒∃x·H(x)
+						∧	¬∃x·R(x)∧¬F(x)
+						∧	∃x·A(x)⇒∃x·F(x)
+						∧	¬∃x·C(x)∧L(x)∧A(x)
+					
+					≡		∃x·C(x) ∧ ∃x·R(x)		duality.
+						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
+						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
+						∧	∃x·P(x)=∃x·L(x)
+						∧	∃x·D(x)⇒∃x·H(x)
+						∧	∀x·¬R(x)∨F(x)
+						∧	∃x·A(x)⇒∃x·F(x)
+						∧	¬∃x·C(x)∧L(x)∧A(x)
+					
+					≡		∃x·C(x) ∧ ∃x·R(x)		material implication.
+						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
+						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
+						∧	∃x·P(x)=∃x·L(x)
+						∧	∃x·D(x)⇒∃x·H(x)
+						∧	∀x·R(x)⇒F(x)
+						∧	∃x·A(x)⇒∃x·F(x)
+						∧	¬∃x·C(x)∧L(x)∧A(x)
+					
+					⇒		∃x·C(x) ∧ ∃x·R(x)		splitting laws.
+						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
+						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
+						∧	∃x·P(x)=∃x·L(x)
+						∧	∃x·D(x)⇒∃x·H(x)
+						∧	∃x·R(x)⇒∃x·F(x)
+						∧	∃x·A(x)⇒∃x·F(x)
+						∧	¬∃x·C(x)∧L(x)∧A(x)
+					
+					
+					≡		∃x·C(x)
+						∧ 	∃x·R(x) 
+						∧ 	∃x·R(x)⇒∃x·F(x)
+						∧ 	∃x·R(x)⇒∃x·S(x)∨∃x·B(x) 
+						∧ 	∃x·B(x)⇒∃x·D(x)∨∃x·P(x) 
+						∧ 	∃x·P(x)=∃x·L(x) 
+						∧ 	∃x·D(x)⇒∃x·H(x) 
+						∧ 	∃x·A(x)⇒∃x·F(x)
+						∧ 	¬∃x·C(x)∧L(x)∧A(x)
+						
+					≡		∃x·C(x)					material implication
+						∧ 	∃x·R(x) 
+						∧ 	∃x·F(x) ∧ (∃x·S(x)∨∃x·B(x))
+						
+						∧ 	¬∃x·B(x)∨∃x·D(x)∨∃x·P(x) 
+						∧ 	¬∃x·D(x)∨∃x·H(x) 
+						∧ 	¬∃x·A(x)∨∃x·F(x)
+						
+						∧ 	∃x·P(x)=∃x·L(x) 
+						∧ 	¬∃x·C(x)∧L(x)∧A(x)			
+						?????
+					
+					
+					
+					∃∀· ∧ ∨ ⇒ ⇐ = and ≠ ¬
+					
+					
+					
+
+					
+					
