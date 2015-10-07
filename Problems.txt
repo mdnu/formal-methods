@@ -503,10 +503,11 @@ Exercises
 		m:n×nat
 	
 	(a) What are the factors of 0?
-		itself. 0, such that 0:0×nat
+		every natural number, such that 0:n×nat.
 		
 	(b) What is 0 a factor of?
 		itself. 0, such that 0:0×nat
+		i.e. "0 is a factor of m" iff m:0×nat iff m = 0.
 		
 	(c) What are the factors of 1?
 		itself. 1, such that 1:1×nat
@@ -534,12 +535,25 @@ Exercises
 			Yes. Simply take the case i=-1, which would imply:
 			-1+1 = 0 = {-1, ~(-1)}, but ~(-1) is not defined in this context.
 			
+			prof hehner's proof:
+				
+				-1+1 = {-1,~-1}		arithmetic.
+			≡	0 = {-1,~-1}		use first axiom.
+			≡	{null} = {-1,~-1}		equation axiom of set theory.
+			≡	null = -1,~-1
+			⇒	-1:null		conjoin an instance of an axiom for null.
+			≡	-1:null:0		transitivity.
+			⇒	-1:0		-1 and 0 are elements.
+			≡	-1=0
+			a contradiction.
+			
 53 	- Simplify (no proof) - well, add proof anyways.
 	
 	(a)	0→1|1→2|2→3|3→4|4→5|[0;..5]
 	
 			0→1|1→2|2→3|3→4|4→5|[0;..5]
-		≡	[1;2;3;4;5]	
+		≡	[1;2;3;4;5]
+		≡	[1;..6]
 	
 	(b)	(4→2 | [-3;..3])3
 		
@@ -553,9 +567,9 @@ Exercises
 		≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
 		≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
 		≡	(3→(2→[10;..15]|[5;..10])|[0;1;2;[5;..10];4])3
-		≡	(3→([5;6;[10;..15];7;8;9;10])|[0;1;2;[5;..10];4])3
-		≡	([0;1;2;[5;6;[10;..15];7;8;9;10];4])3
-		≡	[5;6;[10;..15];7;8;9;10]
+		≡	(3→([5;6;[10;..15];8;9;])|[0;1;2;[5;..10];4])3
+		≡	([0;1;2;[5;6;[10;..15];8;9];4])3
+		≡	[5;6;[10;..15];8;9]
 	
 	(d)	([0;..5][3;4])1
 	
@@ -573,13 +587,13 @@ Exercises
 	(f)	#nat
 	
 			#nat
-		≡	∞
+		≡	1		(because "a nonempty bunch of items is also an item.")
 		
 	(g)	#[*3]
 				
 			#[*3]	
 		≡	#[nat*3]
-		≡	∞
+		≡	nat		(i.e., countably infinite)
 	
 	(h)	[3;4]:[3*4*int]
 	
@@ -617,12 +631,8 @@ Exercises
 		
 	(l)	[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
 	
-			[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
-		≡	[(3;4),(3;5);6;(7,8,9)]'[3;(4;5),(4;6);(7,8)]
-		≡	[(3;4),(3;5;6);(7,8,9)]'[(3;4;5),(4;6;7),(4;6;8)]
-		≡	[(3;4),(3;5;6;7),(3;5;6;8),(3;5;6;9)]'[(3;4;5),(4;6;7),(4;6;8)]
-		≡	null
-		
+			do this over.
+
 10.3 - Function Theory
 
 55	 - In each of the following, replace p by:
@@ -659,6 +669,7 @@ Exercises
 	(iii) To break in, one would have to either smash the door or pick the lock.
 	(iv) Only an expert locksmith could pick the lock.
 	(v) Anyone smashing the door would have been heard.
+	(vi) Nobody was heard.
 	(vii) No one could rob the Russell mansion without fooling the guard.
 	(viii) To fool the guard, one must be a convincing actor.
 	(ix) No criminal could be both an expert locksmith and a convincing actor.
@@ -689,16 +700,19 @@ Exercises
 					∀x·B(x)⇒(D(x)∨P(x))
 				
 				(iv) Only an expert locksmith could pick the lock.
-					∀x·P(x)=L(x)
+					∀x·P(x)⇒L(x)
 				
 				(v) Anyone smashing the door would have been heard.
 					∀x·D(x)⇒H(x)
+				
+				(vi) Nobody was heard.
+					¬∃x·H(x)
 				
 				(vii) No one could rob the Russell mansion without fooling the guard.
 					¬∃x·R(x)∧¬F(x)
 				
 				(viii) To fool the guard, one must be a convincing actor.
-					∀x·A(x)⇒F(x)
+					∀x·F(x)⇒A(x)
 				
 				(ix) No criminal could be both an expert locksmith and a convincing actor.
 					¬∃x·C(x)∧L(x)∧A(x)
@@ -712,83 +726,34 @@ Exercises
 							∃x·C(x)∧R(x)
 						∧	∀x·R(x)⇒(S(x)∨B(x))
 						∧	∀x·B(x)⇒(D(x)∨P(x))
-						∧	∀x·P(x)=L(x)
+						∧	∀x·P(x)⇒L(x)
 						∧	∀x·D(x)⇒H(x)
+						∧	¬∃x·H(x)
 						∧	¬∃x·R(x)∧¬F(x)
-						∧	∀x·A(x)⇒F(x)
+						∧	∀x·F(x)⇒A(x)
 						∧	¬∃x·C(x)∧L(x)∧A(x)
 					
-					⇒		∃x·C(x) ∧ ∃x·R(x)		splitting laws.
-						∧	∃x·R(x)⇒∃x·(S(x)∨B(x))
-						∧	∃x·B(x)⇒∃x·(D(x)∨P(x))
-						∧	∃x·P(x)=∃x·L(x)
-						∧	∃x·D(x)⇒∃x·H(x)
-						∧	¬∃x·R(x)∧¬F(x)
-						∧	∃x·A(x)⇒∃x·F(x)
-						∧	¬∃x·C(x)∧L(x)∧A(x)
+				Lemma:
+							⊤		axiom vii.
+						≡	¬∃x·R(x)∧¬F(x)		duality.
+						≡	∀·x¬(R(x)∧¬F(x))		duality.
+						≡	∀·x¬R(x)∨¬¬F(x)		double negation.
+						≡	∀·x¬R(x)∨F(x)		material implication.
+						≡	∀·xR(x)⇒F(x)
+					
+				Main proof:
+				
+							⊤			axiom i.
+						≡	∃x·C(x)∧R(x)			idempotence.
+						≡	∃x·C(x)∧R(x)∧R(x)		lemma, axiom ii.
+						⇒	∃x·C(x)∧F(x)∧(S(x)∨B(x))		axiom viii, axiom iii.
+						⇒	∃x·C(x)∧A(x)∧(S(x)∨D(x)∨P(x))		axiom v, axiom iv.
+						⇒	∃x·C(x)∧A(x)∧(S(x)∨H(x)∨L(x))		distribution.
+						≡	∃x·C(x)∧A(x)∧(S(x)∨ C(x)∧A(x) ∧ H(x) ∨ C(x)∧A(x) ∧ L(x))		axiom vi, axiom ix.
+						≡	∃x·C(x)∧A(x)∧S(x)		specialize.
+						⇒	∃x·C(x)∧S(x)
 						
-					≡		∃x·C(x) ∧ ∃x·R(x)		splitting laws.
-						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
-						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
-						∧	∃x·P(x)=∃x·L(x)
-						∧	∃x·D(x)⇒∃x·H(x)
-						∧	¬∃x·R(x)∧¬F(x)
-						∧	∃x·A(x)⇒∃x·F(x)
-						∧	¬∃x·C(x)∧L(x)∧A(x)
-					
-					≡		∃x·C(x) ∧ ∃x·R(x)		duality.
-						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
-						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
-						∧	∃x·P(x)=∃x·L(x)
-						∧	∃x·D(x)⇒∃x·H(x)
-						∧	∀x·¬R(x)∨F(x)
-						∧	∃x·A(x)⇒∃x·F(x)
-						∧	¬∃x·C(x)∧L(x)∧A(x)
-					
-					≡		∃x·C(x) ∧ ∃x·R(x)		material implication.
-						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
-						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
-						∧	∃x·P(x)=∃x·L(x)
-						∧	∃x·D(x)⇒∃x·H(x)
-						∧	∀x·R(x)⇒F(x)
-						∧	∃x·A(x)⇒∃x·F(x)
-						∧	¬∃x·C(x)∧L(x)∧A(x)
-					
-					⇒		∃x·C(x) ∧ ∃x·R(x)		splitting laws.
-						∧	∃x·R(x)⇒∃x·S(x)∨∃x·B(x)
-						∧	∃x·B(x)⇒∃x·D(x)∨∃x·P(x)
-						∧	∃x·P(x)=∃x·L(x)
-						∧	∃x·D(x)⇒∃x·H(x)
-						∧	∃x·R(x)⇒∃x·F(x)
-						∧	∃x·A(x)⇒∃x·F(x)
-						∧	¬∃x·C(x)∧L(x)∧A(x)
-					
-					
-					≡		∃x·C(x)
-						∧ 	∃x·R(x) 
-						∧ 	∃x·R(x)⇒∃x·F(x)
-						∧ 	∃x·R(x)⇒∃x·S(x)∨∃x·B(x) 
-						∧ 	∃x·B(x)⇒∃x·D(x)∨∃x·P(x) 
-						∧ 	∃x·P(x)=∃x·L(x) 
-						∧ 	∃x·D(x)⇒∃x·H(x) 
-						∧ 	∃x·A(x)⇒∃x·F(x)
-						∧ 	¬∃x·C(x)∧L(x)∧A(x)
-						
-					≡		∃x·C(x)					material implication
-						∧ 	∃x·R(x) 
-						∧ 	∃x·F(x) ∧ (∃x·S(x)∨∃x·B(x))
-						
-						∧ 	¬∃x·B(x)∨∃x·D(x)∨∃x·P(x) 
-						∧ 	¬∃x·D(x)∨∃x·H(x) 
-						∧ 	¬∃x·A(x)∨∃x·F(x)
-						
-						∧ 	∃x·P(x)=∃x·L(x) 
-						∧ 	¬∃x·C(x)∧L(x)∧A(x)			
-						?????
-					
-					
-					
-					∃∀· ∧ ∨ ⇒ ⇐ = and ≠ ¬
+					∃∀· ∧ ∨ ⇒ ⇐ = and ≠ ¬ ⊤ ⊥ ≡
 					
 					
 					
