@@ -743,15 +743,15 @@ Exercises
 					
 				Main proof:
 				
-						⊤				axiom i.
-					≡	∃x·C(x)∧R(x)			idempotence.
-					≡	∃x·C(x)∧R(x)∧R(x)		lemma, axiom ii.
-					⇒	∃x·C(x)∧F(x)∧(S(x)∨B(x))	axiom viii, axiom iii.
+						⊤					axiom i.
+					≡	∃x·C(x)∧R(x)				idempotence.
+					≡	∃x·C(x)∧R(x)∧R(x)			lemma, axiom ii.
+					⇒	∃x·C(x)∧F(x)∧(S(x)∨B(x))		axiom viii, axiom iii.
 					⇒	∃x·C(x)∧A(x)∧(S(x)∨D(x)∨P(x))	axiom v, axiom iv.
 					⇒	∃x·C(x)∧A(x)∧(S(x)∨H(x)∨L(x))	distribution.
 					≡	∃x·C(x)∧A(x)∧(S(x)∨ 
 						C(x)∧A(x) ∧ H(x) ∨ C(x)∧A(x) ∧ L(x))		axiom vi, axiom ix.
-					≡	∃x·C(x)∧A(x)∧S(x)		specialize.
+					≡	∃x·C(x)∧A(x)∧S(x)			specialize.
 					⇒	∃x·C(x)∧S(x)
 						
 					∃∀· ∧ ∨ ⇒ ⇐ = and ≠ ¬ ⊤ ⊥ ≡
