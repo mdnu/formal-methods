@@ -723,35 +723,36 @@ Exercises
 		(b) Taking the first nine statements as axioms, prove the tenth.
 		
 				Axioms:
-							∃x·C(x)∧R(x)
-						∧	∀x·R(x)⇒(S(x)∨B(x))
-						∧	∀x·B(x)⇒(D(x)∨P(x))
-						∧	∀x·P(x)⇒L(x)
-						∧	∀x·D(x)⇒H(x)
-						∧	¬∃x·H(x)
-						∧	¬∃x·R(x)∧¬F(x)
-						∧	∀x·F(x)⇒A(x)
-						∧	¬∃x·C(x)∧L(x)∧A(x)
+						∃x·C(x)∧R(x)
+					∧	∀x·R(x)⇒(S(x)∨B(x))
+					∧	∀x·B(x)⇒(D(x)∨P(x))
+					∧	∀x·P(x)⇒L(x)
+					∧	∀x·D(x)⇒H(x)
+					∧	¬∃x·H(x)
+					∧	¬∃x·R(x)∧¬F(x)
+					∧	∀x·F(x)⇒A(x)
+					∧	¬∃x·C(x)∧L(x)∧A(x)
 					
 				Lemma:
-							⊤		axiom vii.
-						≡	¬∃x·R(x)∧¬F(x)		duality.
-						≡	∀·x¬(R(x)∧¬F(x))		duality.
-						≡	∀·x¬R(x)∨¬¬F(x)		double negation.
-						≡	∀·x¬R(x)∨F(x)		material implication.
-						≡	∀·xR(x)⇒F(x)
+						⊤			axiom vii.
+					≡	¬∃x·R(x)∧¬F(x)		duality.
+					≡	∀·x¬(R(x)∧¬F(x))	duality.
+					≡	∀·x¬R(x)∨¬¬F(x)	double negation.
+					≡	∀·x¬R(x)∨F(x)		material implication.
+					≡	∀·xR(x)⇒F(x)
 					
 				Main proof:
 				
-							⊤			axiom i.
-						≡	∃x·C(x)∧R(x)			idempotence.
-						≡	∃x·C(x)∧R(x)∧R(x)		lemma, axiom ii.
-						⇒	∃x·C(x)∧F(x)∧(S(x)∨B(x))		axiom viii, axiom iii.
-						⇒	∃x·C(x)∧A(x)∧(S(x)∨D(x)∨P(x))		axiom v, axiom iv.
-						⇒	∃x·C(x)∧A(x)∧(S(x)∨H(x)∨L(x))		distribution.
-						≡	∃x·C(x)∧A(x)∧(S(x)∨ C(x)∧A(x) ∧ H(x) ∨ C(x)∧A(x) ∧ L(x))		axiom vi, axiom ix.
-						≡	∃x·C(x)∧A(x)∧S(x)		specialize.
-						⇒	∃x·C(x)∧S(x)
+						⊤				axiom i.
+					≡	∃x·C(x)∧R(x)			idempotence.
+					≡	∃x·C(x)∧R(x)∧R(x)		lemma, axiom ii.
+					⇒	∃x·C(x)∧F(x)∧(S(x)∨B(x))	axiom viii, axiom iii.
+					⇒	∃x·C(x)∧A(x)∧(S(x)∨D(x)∨P(x))	axiom v, axiom iv.
+					⇒	∃x·C(x)∧A(x)∧(S(x)∨H(x)∨L(x))	distribution.
+					≡	∃x·C(x)∧A(x)∧(S(x)∨ 
+						C(x)∧A(x) ∧ H(x) ∨ C(x)∧A(x) ∧ L(x))		axiom vi, axiom ix.
+					≡	∃x·C(x)∧A(x)∧S(x)		specialize.
+					⇒	∃x·C(x)∧S(x)
 						
 					∃∀· ∧ ∨ ⇒ ⇐ = and ≠ ¬ ⊤ ⊥ ≡
 					
