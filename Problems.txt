@@ -2,7 +2,7 @@ Exercises
 
 10.0 - Preface
 
-0 	- There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
+0 	There are four cards on a table showing symbols D, E, 2 and 3 (one per card).
 	Each card has a letter on one side and a digit on the other. Which card(s) do you need
 	to turn over to determine whether every card with a D on one side has a 3 on the other? Why?
 	
@@ -63,7 +63,7 @@ Exercises
 
 10.1 - Basic Theories
 
-2 	- Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
+2 	Prove each of the following laws of Binary Theory using the proof format in SubSection 1.0.1
 	and any laws listed in Section 11.4. Do not use the Completion Rule.
 	
 	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
@@ -131,7 +131,7 @@ Exercises
 			
 			
 		
-5 	- Complete the following laws of Binary Theory 
+5 	Complete the following laws of Binary Theory 
 	by adding a right side using only the following symbols (in any quantity)
 	
 	(i) 	¬∧ab()
@@ -263,7 +263,7 @@ Exercises
 				≡	(a⇒b)∧⊤
 				≡	a⇒b
 	
-12 	- Formalize each of the following statements as a binary expression.
+12 	Formalize each of the following statements as a binary expression.
 	Start by staying as close as possible to the English, then simplify as much as possible
 	(sometimes no simplification is possible). You will have to introduce new basic binary
 	expressions like (the door can be opened) for parts that cannot make use of binary operators,
@@ -402,7 +402,7 @@ Exercises
 				⊤
 			
 	
-16 	- (tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
+16 	(tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
 	tennis. And if I'm not watching tennis, I'm reading about tennis.". Assuming the speaker cannot
 	do more than one of these activities at a time,
 	
@@ -499,8 +499,8 @@ Exercises
 
 10.2 - Basic Data Structures
 
-41 	- For naturals n and m, we can express the statement "n is a factor of m" formally as follows: 
-		m:n×nat
+41 	For naturals n and m, we can express the statement "n is a factor of m" formally as follows: 
+	m:n×nat
 	
 	(a) What are the factors of 0?
 		every natural number, such that 0:n×nat.
@@ -515,7 +515,7 @@ Exercises
 	(d) What is 1 a factor of?
 		every natural number: m:1×nat = m:nat
 	
-44 	- (von Neumann numbers)
+44 	(von Neumann numbers)
 
 	(a) Is there any harm in adding the axioms:
 			0 = {null}	the empty set
@@ -547,7 +547,7 @@ Exercises
 			≡	-1=0
 			a contradiction.
 			
-53 	- Simplify (no proof) - well, add proof anyways.
+53 	Simplify (no proof) - well, add proof anyways.
 	
 	(a)	0→1|1→2|2→3|3→4|4→5|[0;..5]
 	
@@ -629,41 +629,61 @@ Exercises
 		⇐	[int,int],[int,int]:[int,int]
 		≡	⊤
 		
-	(l)	[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
+	(l)	[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]		***
 	
-			do this over.
-
+			[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
+		≡	[(3;4),(3;5);((6;7),(6;8),(6;8))]'[3;4;((5;7),(5;8),(6;7),(6;8))]
+		≡	[(3;4;6;7),(3;4;6;8),(3;4;6;9),(3;5;6;7),(3;5;6;8),(3;4;6;8)]'
+			[(3;4;5;7),(3;4;5;8),(3;4;6;7),(3;4;6;8)]
+		≡	[3;4;6;7],[3;4;6;8]
+		≡	[3;4;6;(7,8)]
+			
 10.3 - Function Theory
 
-55	 - In each of the following, replace p by:
-		〈x:int→〈y:int→〈z:int→x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉
-		and simplify, assuming x,y,z,u,w:int.
+55	 In each of the following, replace p by:
+	〈x:int→〈y:int→〈z:int→x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉
+	and simplify, assuming x,y,z,u,w:int.
 	
 	(a)	p(x+y)(2×u+w)z
 			
 			〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)z
-		≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀c: int·c^2 ≤b ⇒ c≤a〉〉〉(x+y)(2×u+w)z
-		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉〉〉
-		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉〉〉
-		≡	〈x,y,z,u,w:int → x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉
+			
+			note: variables x,y,z appear both locally and nonlocally.
+			varible z is introduced twice locally.
+			avoiding confusion, we rename the local variables to a,b,c,d resp.
+			
+		≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀d: int·d^2 ≤b ⇒ d≤a〉〉〉(x+y)(2×u+w)z
+		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉〉〉
+		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉〉〉
+		≡	〈x,y,z,u,w:int → x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉
+		≡	x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤(2×u+w) ⇒ d≤x+y
 		
 	(b)	p(x+y)(2×u+w)
 	
 			〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)
-		≡	〈a:int→〈b:int→〈z:int→〈a≥0 ∧ a^2 ≤b ∧ ∀z: int·z^2 ≤b ⇒ z≤a〉〉〉(x+y)(2×u+w)
-		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉〉〉
-		≡	〈x,y,z,u,w:int → x+y≥0 ∧ x^2 +2×x×y + y^2 ≤(2×u+w) ∧ ∀z: int·z^2 ≤(2×u+w) ⇒ z≤x+y〉
+			
+			note: variables x,y,z appear both locally and nonlocally.
+			variable z is introduced twice locally.
+			avoiding confusion, we rename the local variables to a,b,c,d resp.
+			
+		≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀d: int· d^2 ≤ b ⇒ z≤a〉〉〉(x+y)(2×u+w)
+		≡	〈x+y:int→〈2×u+w:int→〈c:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉〉〉
+		≡	〈c:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉
+		≡	int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉
 		
 	(c)	p(x+z)(y+y)(2+z)
 		
 			〈x:int→〈y:int→〈z:int→x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+z)(y+y)(2+z)
-		≡	〈a:int→〈b:int→〈c:int→a≥0 ∧ a^2 ≤b ∧ ∀c: int·c^2 ≤b ⇒ c≤a〉〉〉(x+z)(y+y)(2+z)
-		≡	〈x+d:int→〈y+y:int→〈c:int→x+d≥0 ∧ (x+d)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+d)〉〉〉(2+z)
-		≡	〈x+d:int→〈y+y:int→〈c:int→x+d≥0 ∧ (x+d)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+d)〉〉〉(2+z)
-		≡	〈x+z+2:int→〈y+y:int→〈c:int→x+z+2≥0 ∧ (x+z+2)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+z+2)〉〉〉
-		≡	〈x,y,z,u,w,c:int → x+z+2≥0 ∧ (x+z+2)^2 ≤(y+y) ∧ ∀c: int·c^2 ≤(y+y) ⇒ c≤(x+z+2)〉
+			
+			note: variables x,y,z appear both locally and nonlocally.
+			variable z is introduced twice locally.
+			avoiding confusion, we rename the local variables to a,b,c,d resp.
+			
+		≡	〈a:int→〈b:int→〈c:int→a≥0 ∧ a^2 ≤b ∧ ∀d: int·d^2 ≤b ⇒ d≤a〉〉〉(x+z)(y+y)(2+z)
+		≡	〈(x+z):int→〈(y+y):int→〈(2+z):int→(x+z)≥0 ∧ (x+z)^2 ≤(y+y) ∧ ∀d: int·d^2 ≤(y+y) ⇒ d≤(x+z)〉〉〉
+		≡	(x+z)≥0 ∧ (x+z)^2 ≤(y+y) ∧ ∀d: int·d^2 ≤(y+y) ⇒ d≤(x+z)
 		
-63 	- (whodunit) Here are ten statements:
+63 	(whodunit) Here are ten statements:
 	(i) Some criminal robbed the Russell mansion
 	(ii) Whoever robbed the Russell mansion either had an accomplice among the servants or had to break in.
 	(iii) To break in, one would have to either smash the door or pick the lock.
