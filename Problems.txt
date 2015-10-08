@@ -67,6 +67,7 @@ Exercises
 	and any laws listed in Section 11.4. Do not use the Completion Rule.
 	
 	(f) - (a⇒c)∧(b⇒¬c)⇒¬(a∧b)
+		
 				(a⇒c)∧(b⇒¬c)		conflation.
 			⇒	(a∧b)⇒(c∧¬c)		duality.
 			≡	¬(c∧¬c)⇒¬(a∧b)	antecedent is law of noncontradiction
@@ -74,6 +75,7 @@ Exercises
 			≡	¬(a∧b)
 	
 	(m) - (a⇒¬a)⇒¬a
+	
 				⊤				indirect proof, instantiate, replacing a with ¬a
 			≡	(¬¬a⇒¬a)=¬a			double negation
 			≡	(a⇒¬a)=¬a			antisymmetry (double implication)
@@ -81,6 +83,7 @@ Exercises
 			⇒	((a⇒¬a)⇒¬a)			
 	
 	(p) - a=b ∨ a=c ∨ b=c
+	
 				(((a=b)=⊤) v b=c) v a=c		Context (assumption).
 			≡	((a=b)=(b≠c)) v a=c v b=c 	Context (in exp0vexp1, changing exp0 we assume ¬exp1).
 			≡	(a=(b=b)≠c) v a=c v b=c		Associative.
@@ -90,6 +93,7 @@ Exercises
 			≡	⊤
 			
 		alternate proof:
+				
 				a=b ∨ a=c ∨ b=c			identity and reflexive laws for =
 			≡	a=b ∨ a=c v b=((a=a)=c)			symmetry and associative laws for =
 			≡	(a=b v a=c) v (a=b)=(a=c)		main v distributes over =
@@ -98,6 +102,7 @@ Exercises
 			≡	⊤
 			
 	(s) - a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
+	
 				a⇒a∧b
 			≡	a⇒b			Discharge.
 			≡	a⇒b ∧ ⊤		Context.
@@ -113,6 +118,7 @@ Exercises
 			≡	⊤									
 			
 	(u) if b∧c then P else Q fi ≡ if b then if c then P else Q fi else Q fi
+	
 				if b then if c then P else Q fi else Q fi
 			≡	b∧(c∧P v ¬c∧Q) v (¬b∧Q)		case analysis twice
 			≡	(b∧c∧P) v (b∧¬c∧Q) v (¬b∧Q)		distribution
@@ -268,120 +274,134 @@ Exercises
 		(a) The door can only be opened if the elevator is stopped.
 			A = "the elevator is stopped"
 			B = "The door can be opened"
-					B⇒A
-					this allows for the case when the elevator is stopped but
-					the door can't be opened. (remember, implication is only false iff 
-					the antecedent is true but conclusion is false).
+			
+				B⇒A
+				this allows for the case when the elevator is stopped but
+				the door can't be opened. (remember, implication is only false iff 
+				the antecedent is true but conclusion is false).
 		
 		(b)	Neither the elevator door nor the floor door will open unless both of them do.
 			A = "The elevator door will open."
 			B = "The floor door will open."
-					¬(AvB)v(A∧B)
-					simplifies to:
-					(¬A∧¬B)v(A∧B)
-				≡	(A∧B)v(¬A∧¬B)
-				≡	A=B
+			
+				¬(AvB)v(A∧B)
+				simplifies to:
+				(¬A∧¬B)v(A∧B)
+			≡	(A∧B)v(¬A∧¬B)
+			≡	A=B
 		
 		(c) Either the motor is jammed or the control is broken.
 			A = "The motor is jammed."
 			B = "The control is broken."
-					AvB
+			
+				AvB
 			
 		(d) Either the light is on or it is off.
 			A = "The light is on."
-					Av¬A
-					simplifies to:
-					A=A
-					or
-					A≠¬A
+			
+				Av¬A
+				simplifies to:
+				A=A
+				or
+				A≠¬A
 		
 		(e) If you press the button, the elevator will come.
 			A = "You press the button."
 			B = "The elevator will come."
-					A⇒B
+			
+				A⇒B
 		
 		(f) If the power switch is on, the system is operating.
 			A = "The power switch is on."
 			B = "The system is operating."
-					A⇒B
-					This case allows for the possibility that the
-					power switch is off but the system is operating.
-					clearly we can't have this, so it must be an iff.
-					i.e.:
-					(A⇒B)∧(B⇒A)
-					which simplifies to:
-					A=B
+			
+				A⇒B
+				This case allows for the possibility that the
+				power switch is off but the system is operating.
+				clearly we can't have this, so it must be an iff.
+				i.e.:
+				(A⇒B)∧(B⇒A)
+				which simplifies to:
+				A=B
 		
 		(g) Where there's smoke, there's fire; and there's no smoke, so there's no fire.
 			A = "There is smoke."
 			B = "There is fire."
-					(A⇒B)∧(¬A) ⇒ ¬B
-					simplifies to:
-					(¬AvB)∧(¬A) ⇒ ¬B
-				≡	¬((¬AvB)∧(¬A))v¬B
-				≡	¬(¬AvB)vAv¬B
-				≡	(A∧¬B)v(Av¬B)
-				≡	Av(Av¬B) ∧ ¬Bv(Av¬B)
-				≡	(AvAv¬B)v(¬BvAv¬B)
-				≡	(Av¬B)v(Av¬B)
-				≡	Av¬B
-				≡	B⇒A
-					or A⇐B
+			
+				(A⇒B)∧(¬A) ⇒ ¬B
+				simplifies to:
+				(¬AvB)∧(¬A) ⇒ ¬B
+			≡	¬((¬AvB)∧(¬A))v¬B
+			≡	¬(¬AvB)vAv¬B
+			≡	(A∧¬B)v(Av¬B)
+			≡	Av(Av¬B) ∧ ¬Bv(Av¬B)
+			≡	(AvAv¬B)v(¬BvAv¬B)
+			≡	(Av¬B)v(Av¬B)
+			≡	Av¬B
+			≡	B⇒A
+				or A⇐B
 		
 		(h) Where there's smoke, there's fire; and there's no fire; so there's no smoke.
 			A = "There is smoke."
 			B = "There is fire."
-					(A⇒B)∧(¬B) ⇒ ¬A
-					simplifies to:
-				≡	¬((¬AvB)∧(¬B))v¬A
-				≡	¬(¬AvB)vBv¬A
-				≡	(A∧¬B)v(Bv¬A)
-				≡	AvBv¬A ∧ ¬BvBv¬A
-				≡	B∧¬A
-				≡	A⇒B
+			
+				(A⇒B)∧(¬B) ⇒ ¬A
+				simplifies to:
+			≡	¬((¬AvB)∧(¬B))v¬A
+			≡	¬(¬AvB)vBv¬A
+			≡	(A∧¬B)v(Bv¬A)
+			≡	AvBv¬A ∧ ¬BvBv¬A
+			≡	B∧¬A
+			≡	A⇒B
 				
 		
 		(i) You can't score if you don't shoot.
 			A = "You score."
 			B = "You shoot."
-					¬B⇒¬A
-					simplifies to:
-					A⇒B
+			
+				¬B⇒¬A
+				simplifies to:
+				A⇒B
 		
 		(j) If you have a key, only then can you open the door.
 			A = "You have a key."
 			B = "You can open the door"
-					¬(A≠B)
-					or, (A⇒B)∧(B⇒A)
-					or, A=B
+			
+				¬(A≠B)
+				or, (A⇒B)∧(B⇒A)
+				or, A=B
 		
 		(k) No pain, no gain.
 			A = "There is no pain."
 			B = "There is no gain."
-					¬A⇒¬B
-					simplifies to:
-					B⇒A
-					or
-					A⇐B
+			
+				¬A⇒¬B
+				simplifies to:
+				B⇒A
+				or
+				A⇐B
 		
 		(l) No shirt? No shoes? No service!
 			A = "You have a shirt."
 			B = "You have shoes."
 			C = "You get service."
-					¬Av¬B⇒¬C
-					simplifies to:
-					¬(¬Av¬B)v¬C
-				≡	(A∧B)v¬C
-				≡	C⇒(A∧B)
-					or
-					(A∧B)⇐C
+			
+				¬Av¬B⇒¬C
+				simplifies to:
+				¬(¬Av¬B)v¬C
+			≡	(A∧B)v¬C
+			≡	C⇒(A∧B)
+				or
+				(A∧B)⇐C
 		
 		(m) If it happens, it happens.
 			A = "It happens"
-					A⇒A
-					simplifies to:
-					⊤
 			
+				A⇒A
+				simplifies to:
+				⊤
+			
+	
 16 	(tennis) An advertisement for a tennis magazine says "If I'm not playing tennis, I'm watching
 	tennis. And if I'm not watching tennis, I'm reading about tennis.". Assuming the speaker cannot
 	do more than one of these activities at a time,
@@ -397,14 +417,14 @@ Exercises
 		which we form (¬A⇒B)∧(¬B⇒C), and use this:
 		We show that (¬A⇒B)∧(¬B⇒C) is false when we assume C is true while A and B are false.
 		
-				(¬A⇒B)∧(¬B⇒C)		
-			≡	(¬(A=⊥)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊤)))	context.
-			≡	(¬⊥⇒⊥ ∧(¬⊥⇒⊤))					
-			≡	(⊥v⊥ ∧ ⊥v⊤)				M.I.
-			≡	(⊥ ∧ ⊥v⊤)				Identity.
-			≡	(⊥∧⊥ v ⊥∧⊤)				Distribution.
-			≡	(⊥ v ⊥)				Identity.
-			≡	⊥
+			(¬A⇒B)∧(¬B⇒C)		
+		≡	(¬(A=⊥)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊤)))	context.
+		≡	(¬⊥⇒⊥ ∧(¬⊥⇒⊤))					
+		≡	(⊥v⊥ ∧ ⊥v⊤)				M.I.
+		≡	(⊥ ∧ ⊥v⊤)				Identity.
+		≡	(⊥∧⊥ v ⊥∧⊤)				Distribution.
+		≡	(⊥ v ⊥)				Identity.
+		≡	⊥
 		
 		So the speaker is not reading about tennis.
 	
@@ -416,26 +436,27 @@ Exercises
 		A true while B and C false, and B true while A and C false.
 		
 		For the first case:
-				(¬A⇒B)∧(¬B⇒C)		
-			≡	(¬(A=⊤)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊥)))	context.
-			≡	(¬⊤⇒⊥ ∧(¬⊥⇒⊥))
-			≡	(⊤v⊥ ∧ ⊥v⊥)				M.I.
-			≡	(⊤v⊥ ∧ ⊥)				Identity.
-			≡	(⊤∧⊥ v ⊥∧⊥)				Distribution.
-			≡	(⊥ v ⊥)				Identity.
-			≡	⊥
+		
+			(¬A⇒B)∧(¬B⇒C)		
+		≡	(¬(A=⊤)⇒(B=⊥)∧(¬(B=⊥)⇒(C=⊥)))	context.
+		≡	(¬⊤⇒⊥ ∧(¬⊥⇒⊥))
+		≡	(⊤v⊥ ∧ ⊥v⊥)				M.I.
+		≡	(⊤v⊥ ∧ ⊥)				Identity.
+		≡	(⊤∧⊥ v ⊥∧⊥)				Distribution.
+		≡	(⊥ v ⊥)				Identity.
+		≡	⊥
 		
 		So A is false, and the speaker is not playing tennis.
 		Since we're assuming only one of A,B,C can be true, then clearly B must be true.
 		For brevity, we prove it:
 		
-				(¬A⇒B)∧(¬B⇒C)		
-			≡	(¬(A=⊥)⇒(B=⊤)∧(¬(B=⊤)⇒(C=⊥)))	context.
-			≡	(¬⊥⇒⊤ ∧(¬⊤⇒⊥))					
-			≡	(⊥v⊤ ∧ ⊤v⊥)				M.I.
-			≡	⊥v(⊤∧⊤)				Distribution.
-			≡	⊥v⊤					Identity
-			≡	⊤
+			(¬A⇒B)∧(¬B⇒C)		
+		≡	(¬(A=⊥)⇒(B=⊤)∧(¬(B=⊤)⇒(C=⊥)))	context.
+		≡	(¬⊥⇒⊤ ∧(¬⊤⇒⊥))					
+		≡	(⊥v⊤ ∧ ⊤v⊥)				M.I.
+		≡	⊥v(⊤∧⊤)				Distribution.
+		≡	⊥v⊤					Identity
+		≡	⊤
 		
 		prof hehner's solution:
 		
@@ -444,29 +465,30 @@ Exercises
 		
 		Given information is the first line of the proof: 
 		
-				(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		contrapositive
-			≡	(¬p⇒w)∧(¬r⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		antidistributive
-			≡	(¬pv¬r)⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)			duality
-			≡	(¬(p∧r))⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)			discharge
-			≡	w∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)				use w to simplify
-			≡	w∧¬p∧¬(p∧r)∧¬r					use ¬p and then ¬r to simplify
-			≡	w∧¬p∧¬r						specialize
-			⇒	¬r
+			(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		contrapositive
+		≡	(¬p⇒w)∧(¬r⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		antidistributive
+		≡	(¬pv¬r)⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)			duality
+		≡	(¬(p∧r))⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)			discharge
+		≡	w∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)				use w to simplify
+		≡	w∧¬p∧¬(p∧r)∧¬r					use ¬p and then ¬r to simplify
+		≡	w∧¬p∧¬r						specialize
+		⇒	¬r
 		
 		if we interpret the second sentence as "and if I'm not also watching
 		tennis, I'm reading about tennis", then we formalize this as:
 		¬p∧¬w⇒r, and we have another deduction:
 		
-				(¬p⇒w)∧(¬p∧¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		portation
-			≡	(¬p⇒w)∧(¬p⇒(¬w⇒r))∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		distribution
-			≡	(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		use context w
-			≡	(¬p⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		
-			≡	¬p=w ∧ ¬(p∧r)∧¬(r∧w)
-			≡	¬p=w ∧ ¬(p∧r)∧¬(r∧¬p)
-			≡	p≠w ∧ ¬r
-			⇒	¬r							specialize.
+			(¬p⇒w)∧(¬p∧¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		portation
+		≡	(¬p⇒w)∧(¬p⇒(¬w⇒r))∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		distribution
+		≡	(¬p⇒w)∧(¬w⇒r)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		use context w
+		≡	(¬p⇒w)∧¬(p∧w)∧¬(p∧r)∧¬(r∧w)		
+		≡	¬p=w ∧ ¬(p∧r)∧¬(r∧w)
+		≡	¬p=w ∧ ¬(p∧r)∧¬(r∧¬p)
+		≡	p≠w ∧ ¬r
+		⇒	¬r							specialize.
 		
 		In either case, we get ¬r.
+		
 		As for what the speaker is doing:
 		Look at the second-last line from the first interpretation:
 		w∧¬p∧¬r,and hence the speaker is watching tennis.
@@ -484,14 +506,14 @@ Exercises
 		every natural number, such that 0:n×nat.
 		
 	(b) What is 0 a factor of?
-			itself. 0, such that 0:0×nat
-			i.e. "0 is a factor of m" iff m:0×nat iff m = 0.
+		itself. 0, such that 0:0×nat
+		i.e. "0 is a factor of m" iff m:0×nat iff m = 0.
 		
 	(c) What are the factors of 1?
-			itself. 1, such that 1:1×nat
+		itself. 1, such that 1:1×nat
 		
 	(d) What is 1 a factor of?
-			every natural number: m:1×nat = m:nat
+		every natural number: m:1×nat = m:nat
 	
 44 	(von Neumann numbers)
 
@@ -528,81 +550,93 @@ Exercises
 53 	Simplify (no proof) - well, add proof anyways.
 	
 	(a)	0→1|1→2|2→3|3→4|4→5|[0;..5]
-				0→1|1→2|2→3|3→4|4→5|[0;..5]
-			≡	[1;2;3;4;5]
-			≡	[1;..6]
+	
+			0→1|1→2|2→3|3→4|4→5|[0;..5]
+		≡	[1;2;3;4;5]
+		≡	[1;..6]
 	
 	(b)	(4→2 | [-3;..3])3
-				(4→2 | [-3;..3])3
-			≡	([-3;-2;-1;0;2;2])3
-			≡	0
+		
+			(4→2 | [-3;..3])3
+		≡	([-3;-2;-1;0;2;2])3
+		≡	0
 		
 	(c)	((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
-				((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
-			≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
-			≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
-			≡	(3→(2→[10;..15]|[5;..10])|[0;1;2;[5;..10];4])3
-			≡	(3→([5;6;[10;..15];8;9;])|[0;1;2;[5;..10];4])3
-			≡	([0;1;2;[5;6;[10;..15];8;9];4])3
-			≡	[5;6;[10;..15];8;9]
+	
+			((3;2)→[10;..15]|3→[5;..10]|[0;..5])3
+		≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
+		≡	(3→(2→[10;..15])|3→[5;..10]|[0;..5])3
+		≡	(3→(2→[10;..15]|[5;..10])|[0;1;2;[5;..10];4])3
+		≡	(3→([5;6;[10;..15];8;9;])|[0;1;2;[5;..10];4])3
+		≡	([0;1;2;[5;6;[10;..15];8;9];4])3
+		≡	[5;6;[10;..15];8;9]
 	
 	(d)	([0;..5][3;4])1
-				([0;..5][3;4])1
-			≡	([3;4])1
-			≡	4
+	
+			([0;..5][3;4])1
+		≡	([3;4])1
+		≡	4
 	
 	(e)	(2;2)→"j"|[["abc"];["de"];["fghi"]]
-				(2;2)→"j"|[["abc"];["de"];["fghi"]]
-			≡	2→(2→"j"|["fghi"])|[["abc"];["de"];["fghi"]]
-			≡	2→["fgji"]|[["abc"];["de"];["fghi"]]
-			≡	[["abc"];["de"];["fgji"]]
+		
+			(2;2)→"j"|[["abc"];["de"];["fghi"]]
+		≡	2→(2→"j"|["fghi"])|[["abc"];["de"];["fghi"]]
+		≡	2→["fgji"]|[["abc"];["de"];["fghi"]]
+		≡	[["abc"];["de"];["fgji"]]
 	
 	(f)	#nat
-				#nat
-			≡	1		(because "a nonempty bunch of items is also an item.")
+	
+			#nat
+		≡	1		(because "a nonempty bunch of items is also an item.")
 		
 	(g)	#[*3]
-				#[*3]	
-			≡	#[nat*3]
-			≡	nat		(i.e., countably infinite)
+				
+			#[*3]	
+		≡	#[nat*3]
+		≡	nat		(i.e., countably infinite)
 	
 	(h)	[3;4]:[3*4*int]
-				[3;4]:[3*4*int]
-			≡	[3;4]:[3*4*int]
-			≡	[3;4]:[[int,int,int,int],[int,int,int,int],[int,int,int,int]]
-			⇒	#([3;4]):#([[int,int,int,int],[int,int,int,int],[int,int,int,int]])
-			≡	2 : 12
-			≡	⊥
+	
+			[3;4]:[3*4*int]
+		≡	[3;4]:[3*4*int]
+		≡	[3;4]:[[int,int,int,int],[int,int,int,int],[int,int,int,int]]
+		⇒	#([3;4]):#([[int,int,int,int],[int,int,int,int],[int,int,int,int]])
+		≡	2 : 12
+		≡	⊥
 		
 	(i)	[3;4]:[3;int]
-				[3;4]:[3;int]
-			⇒	#([3;4]):#([3;int])
-			≡	2 : 2
-			≡	⊤
+	
+			[3;4]:[3;int]
+		⇒	#([3;4]):#([3;int])
+		≡	2 : 2
+		≡	⊤
 		
 	(j)	[3,4;5]:[2*int]
-				[3,4;5]:[2*int]
-			≡	[3],[4;5]:[int,int]
-			⇒	#([3],[4;5]):#[int,int]
-			≡	1,2 : 2
-			≡	1:2 ∧ 2:2
-			≡	⊥∧⊤
-			≡	⊥
+	
+			[3,4;5]:[2*int]
+		≡	[3],[4;5]:[int,int]
+		⇒	#([3],[4;5]):#[int,int]
+		≡	1,2 : 2
+		≡	1:2 ∧ 2:2
+		≡	⊥∧⊤
+		≡	⊥
 		
 	(k)	[(3,4);5]:[2*int]
-				[(3,4);5]:[2*int]
-			≡	[(3;5),(4;5)]:[int,int]
-			≡	[(3;5)],[(4;5)]:[int,int]
-			⇐	[int,int],[int,int]:[int,int]
-			≡	⊤
+		
+			[(3,4);5]:[2*int]
+		≡	[(3;5),(4;5)]:[int,int]
+		≡	[(3;5)],[(4;5)]:[int,int]
+		⇐	[int,int],[int,int]:[int,int]
+		≡	⊤
 		
 	(l)	[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]		***
-				[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
-			≡	[(3;4),(3;5);((6;7),(6;8),(6;8))]'[3;4;((5;7),(5;8),(6;7),(6;8))]
-			≡	[(3;4;6;7),(3;4;6;8),(3;4;6;9),(3;5;6;7),(3;5;6;8),(3;4;6;8)]'
-				[(3;4;5;7),(3;4;5;8),(3;4;6;7),(3;4;6;8)]
-			≡	[3;4;6;7],[3;4;6;8]
-			≡	[3;4;6;(7,8)]
+	
+			[3;(4,5);6;(7,8,9)]'[3;4;(5,6);(7,8)]
+		≡	[(3;4),(3;5);((6;7),(6;8),(6;8))]'[3;4;((5;7),(5;8),(6;7),(6;8))]
+		≡	[(3;4;6;7),(3;4;6;8),(3;4;6;9),(3;5;6;7),(3;5;6;8),(3;4;6;8)]'
+			[(3;4;5;7),(3;4;5;8),(3;4;6;7),(3;4;6;8)]
+		≡	[3;4;6;7],[3;4;6;8]
+		≡	[3;4;6;(7,8)]
 			
 10.3 - Function Theory
 
@@ -612,42 +646,42 @@ Exercises
 	
 	(a)	p(x+y)(2×u+w)z
 			
-				〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)z
+			〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)z
 			
 			note: variables x,y,z appear both locally and nonlocally.
 			varible z is introduced twice locally.
 			avoiding confusion, we rename the local variables to a,b,c,d resp.
 			
-			≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀d: int·d^2 ≤b ⇒ d≤a〉〉〉(x+y)(2×u+w)z
-			≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉〉〉
-			≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉〉〉
-			≡	〈x,y,z,u,w:int → x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉
-			≡	x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤(2×u+w) ⇒ d≤x+y
+		≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀d: int·d^2 ≤b ⇒ d≤a〉〉〉(x+y)(2×u+w)z
+		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉〉〉
+		≡	〈x+y:int→〈2×u+w:int→〈z:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉〉〉
+		≡	〈x,y,z,u,w:int → x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤ (2×u+w) ⇒ d≤x+y〉
+		≡	x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d: int·d^2 ≤(2×u+w) ⇒ d≤x+y
 		
 	(b)	p(x+y)(2×u+w)
 	
-				〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)
+			〈x:int→〈y:int→〈z:int→〈x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+y)(2×u+w)
 			
 			note: variables x,y,z appear both locally and nonlocally.
 			variable z is introduced twice locally.
 			avoiding confusion, we rename the local variables to a,b,c,d resp.
 			
-			≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀d: int· d^2 ≤ b ⇒ z≤a〉〉〉(x+y)(2×u+w)
-			≡	〈x+y:int→〈2×u+w:int→〈c:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉〉〉
-			≡	〈c:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉
-			≡	int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉
+		≡	〈a:int→〈b:int→〈c:int→〈a≥0 ∧ a^2 ≤b ∧ ∀d: int· d^2 ≤ b ⇒ z≤a〉〉〉(x+y)(2×u+w)
+		≡	〈x+y:int→〈2×u+w:int→〈c:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉〉〉
+		≡	〈c:int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉
+		≡	int→〈x+y≥0 ∧ (x+y)^2 ≤(2×u+w) ∧ ∀d:int·d^2 ≤(2×u+w) ⇒ d≤x+y〉
 		
 	(c)	p(x+z)(y+y)(2+z)
 		
-				〈x:int→〈y:int→〈z:int→x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+z)(y+y)(2+z)
+			〈x:int→〈y:int→〈z:int→x≥0 ∧ x^2 ≤y ∧ ∀z: int·z^2 ≤y ⇒ z≤x〉〉〉(x+z)(y+y)(2+z)
 			
 			note: variables x,y,z appear both locally and nonlocally.
 			variable z is introduced twice locally.
 			avoiding confusion, we rename the local variables to a,b,c,d resp.
 			
-			≡	〈a:int→〈b:int→〈c:int→a≥0 ∧ a^2 ≤b ∧ ∀d: int·d^2 ≤b ⇒ d≤a〉〉〉(x+z)(y+y)(2+z)
-			≡	〈(x+z):int→〈(y+y):int→〈(2+z):int→(x+z)≥0 ∧ (x+z)^2 ≤(y+y) ∧ ∀d: int·d^2 ≤(y+y) ⇒ d≤(x+z)〉〉〉
-			≡	(x+z)≥0 ∧ (x+z)^2 ≤(y+y) ∧ ∀d: int·d^2 ≤(y+y) ⇒ d≤(x+z)
+		≡	〈a:int→〈b:int→〈c:int→a≥0 ∧ a^2 ≤b ∧ ∀d: int·d^2 ≤b ⇒ d≤a〉〉〉(x+z)(y+y)(2+z)
+		≡	〈(x+z):int→〈(y+y):int→〈(2+z):int→(x+z)≥0 ∧ (x+z)^2 ≤(y+y) ∧ ∀d: int·d^2 ≤(y+y) ⇒ d≤(x+z)〉〉〉
+		≡	(x+z)≥0 ∧ (x+z)^2 ≤(y+y) ∧ ∀d: int·d^2 ≤(y+y) ⇒ d≤(x+z)
 		
 63 	(whodunit) Here are ten statements:
 	(i) Some criminal robbed the Russell mansion
@@ -740,10 +774,72 @@ Exercises
 					≡	∃x·C(x)∧A(x)∧S(x)			specialize.
 					⇒	∃x·C(x)∧S(x)
 						
-					∃∀· ∧ ∨ ⇒ ⇐ = and ≠ ¬ ⊤ ⊥ ≡
 					
 					
+					
+Practice T0, 2014.
 
+0	Let all variables be boolean. Using the notations, format and methods, prove:
 
-					
-					
+	(a)	if b then c else ¬c ≡ if c then b else ¬b
+	
+			if b then c else ¬c		case analysis.
+		≡	(b∧c)∨(¬b∧¬c)		symmetry, twice.
+		≡	(c∧b)∨(¬c∧¬b)		case analysis.
+		≡	if c then b else ¬b
+	
+	(b)	(a⇒(p=x))∧(¬a⇒p) ≡ p=(x∨¬a)
+	
+			p=(x∨¬a)		case idempotent (generic).
+		≡	if a then p=(x∨¬a) else p=(x∨¬a) fi		context (changing exp2, assume ¬exp0)
+		≡	if a then p=(x∨¬⊤) else p=(x∨¬⊥) fi		binary laws.
+		≡	if a then p=(x∨⊥) else p=(x∨⊤) fi		identity.
+		≡	if a then p=x else p=⊤ fi		identity.
+		≡	if a then p=x else p fi		case analysis (part ii).
+		≡	(a⇒(p=x))∧(¬a⇒p)
+			
+1	Let A be a bunch of booleans such that A = ¬A. What is A?
+		null.
+
+2	Let B = 1,3,5. What is:
+	
+	(a) ¢(B+B)
+		= ¢(1,3,5+1,3,5)
+		= ¢(1+1,1+3,1+5,3+1,3+3,3+5,5+1,5+3,5+5)
+		= ¢(2,4,6,4,6,8,6,8,10)
+		= ¢(2,4,6,8,10)
+		= 5
+	
+	(b) ¢(B×2)
+		= ¢((1,3,5)×2)
+		= ¢(2,6,10)
+		= 3
+	
+	(c) ¢(B×B)
+		= ¢(1,3,5×1,3,5)
+		= ¢(1×1,1×3,1×5,3×1,3×3,3×5,5×1,5×3,5×5)
+		= ¢(1,3,5,3,9,15,5,15,25)
+		= ¢(1,3,5,9,15,25)
+		= 6
+		
+	(d) ¢(B^2)
+		= ¢((1,3,5)^2)
+		= ¢(1,9,25)
+		= 3
+		
+		
+3	A list is bitonic if it is monotonic up to some index, and antimonotonic after that.
+	For example, [1;3;4;5;5;6;4;4;3] is bitonic. Either the monotonic part or the antimonotonic
+	part or both could be empty. Express formally that L is bitonic.
+	
+		∃n:0,..#L+1·(∀i,j:0,..n·i≤j ⇒ Li≤Lj)∧(∀i,j:n,..#L·i≤j ⇒ Lj≤Li)
+	
+4	There are some people in a bar. Formalize and prove the statement
+	"There's a person in the bar such that, if that person drinks, then everyone in the bar drinks.".
+		
+		Let Dx be the predicate "x drinks". We assume x is in the domain of people.
+		
+			∃x·Dx ⇒ ∀y·Dy		antidistributive law.
+		≡	∀x·(Dx⇒∀y·Dy)		reflexivity.
+		≡	∀x·Dx⇒∀y·Dy
+		≡	⊤
