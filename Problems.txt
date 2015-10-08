@@ -113,7 +113,7 @@ Exercises
 			proof c/o prof hehner:
 			
 				a⇒a∧b ≡ a⇒b ≡ a∨b⇒b
-			≡	(a⇒a ∧ a⇒b) ≡ a⇒b ≡ (a⇒a ∧ a⇒b)		distrib ⇒ over ∧, antidistrib ⇒ over ∨
+			≡	(a⇒a ∧ a⇒b) ≡ a⇒b ≡ (a⇒b ∧ b⇒b)		distrib ⇒ over ∧, antidistrib ⇒ over ∨
 			≡	a⇒b ≡ a⇒b ≡ a⇒b		reflexivity of ⇒ and identity of ∧, reflexivity of =
 			≡	⊤									
 			
