@@ -784,18 +784,18 @@ Practice T0, 2014.
 	(a)	if b then c else ¬c ≡ if c then b else ¬b
 	
 			if b then c else ¬c		case analysis.
-		≡	(b∧c)∨(¬b∧¬c)		symmetry, twice.
-		≡	(c∧b)∨(¬c∧¬b)		case analysis.
+		≡	(b∧c)∨(¬b∧¬c)			symmetry, twice.
+		≡	(c∧b)∨(¬c∧¬b)			case analysis.
 		≡	if c then b else ¬b
 	
 	(b)	(a⇒(p=x))∧(¬a⇒p) ≡ p=(x∨¬a)
 	
-			p=(x∨¬a)		case idempotent (generic).
+			p=(x∨¬a)					case idempotent (generic).
 		≡	if a then p=(x∨¬a) else p=(x∨¬a) fi		context (changing exp2, assume ¬exp0)
 		≡	if a then p=(x∨¬⊤) else p=(x∨¬⊥) fi		binary laws.
 		≡	if a then p=(x∨⊥) else p=(x∨⊤) fi		identity.
-		≡	if a then p=x else p=⊤ fi		identity.
-		≡	if a then p=x else p fi		case analysis (part ii).
+		≡	if a then p=x else p=⊤ fi			identity.
+		≡	if a then p=x else p fi				case analysis (part ii).
 		≡	(a⇒(p=x))∧(¬a⇒p)
 			
 1	Let A be a bunch of booleans such that A = ¬A. What is A?
