@@ -873,7 +873,7 @@ T0, 2015. ⊤⊥
 		
 			if if b then c else d fi then P else Q fi				case analysis.
 		≡	if b then c else d fi ∧ P ∨ ¬if b then c else d fi ∧ Q		distrib.
-		≡	if b then c∧P else d∧P ∨ if b then ¬c∧Q else ¬d∧Q fi		distrib.
+		≡	if b then c∧P else d∧P ∨ if b then ¬c∧Q else ¬d∧Q fi			distrib.
 		≡	if b then c∧P ∨ ¬c∧Q else d∧P ∨ ¬d∧Q fi				case analysis.
 		≡	if b then if c then P else Q fi else if d then P else Q fi fi
 
@@ -883,12 +883,12 @@ T0, 2015. ⊤⊥
 		
 			proof by contradiction:
 			
-			7:null			conjoin an instance of an axiom for null.
-		≡	7:null ∧ null:7		antisymmetry.
-		≡	7=null			transparency.
-		⇒	¢7 = ¢null		size axioms; 7 is an element.
-		≡	1 = 0			symmetry and conjoin direction axiom 0<1.
-		≡	0<1 ∧ 0=1		conjoin instance of generic axiom.
+			7:null				conjoin an instance of an axiom for null.
+		≡	7:null ∧ null:7			antisymmetry.
+		≡	7=null				transparency.
+		⇒	¢7 = ¢null			size axioms; 7 is an element.
+		≡	1 = 0				symmetry and conjoin direction axiom 0<1.
+		≡	0<1 ∧ 0=1			conjoin instance of generic axiom.
 		≡	(0<1 ∧ 0=1)∧¬(0<1 ∧ 0=1)	noncontradiction.
 		≡	⊥
 			
