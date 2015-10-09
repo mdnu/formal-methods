@@ -843,3 +843,63 @@ Practice T0, 2014.
 		≡	∀x·(Dx⇒∀y·Dy)		reflexivity.
 		≡	∀x·Dx⇒∀y·Dy
 		≡	⊤
+		
+T0, 2015. ⊤⊥
+
+0	Let a,b be binary variables. Prove a=(a⇒b) ≡ a∧b.
+		
+			a=(a⇒b)
+		≡	a=(¬a∨b)		m.i.
+		≡	(a∧(¬a∨b))∨(¬a∧¬(¬a∨b))	law of equality
+		≡	(a∧(¬a∨b))∨¬a∧(a∧¬b)	distrib.
+		≡	(a∧(¬a∨b))∨(¬a∧a∧¬b)
+		≡	(a∧¬a)∨(a∧b)∨(¬a∧a∧¬b)
+		≡	⊥∨(a∧b)∨⊥
+		≡	(a∧b)∨⊥
+		≡	(a∧b)
+		
+		prof. solution:
+		
+			(a=(a⇒b) = a∧b)		symmetry of =
+		≡	((a⇒b)=a = a∧b)		assoc of =
+		≡	((a⇒b) = a=(a∧b))		symmetry of =
+		≡	((a⇒b) = (a∧b)=a)		inclusion
+		≡	⊤
+
+1	Let b,c,d,P,Q be binary variables. 
+	Prove if if b then c else d fi then P else Q fi = if b then if c then P else Q fi else if d then P else Q fi fi
+	
+		prof. solution:
+		
+			if if b then c else d fi then P else Q fi		case analysis.
+		≡	if b then c else d fi ∧ P ∨ ¬if b then c else d fi ∧ Q		distrib.
+		≡	if b then c∧P else d∧P ∨ if b then ¬c∧Q else ¬d∧Q fi		distrib.
+		≡	if b then c∧P ∨ ¬c∧Q else d∧P ∨ ¬d∧Q fi		case analysis.
+		≡	if b then if c then P else Q fi else if d then P else Q fi fi
+
+2	Prove ¬7:null
+		
+		prof. solution:
+		
+			proof by contradiction:
+			
+			7:null		conjoin an instance of an axiom for null.
+		≡	7:null ∧ null:7		antisymmetry.
+		≡	7=null		transparency.
+		⇒	¢7 = ¢null		size axioms; 7 is an element.
+		≡	1 = 0		symmetry and conjoin direction axiom 0<1.
+		≡	0<1 ∧ 0=1		conjoin instance of generic axiom.
+		≡	(0<1 ∧ 0=1)∧¬(0<1 ∧ 0=1)		noncontradiction.
+		≡	⊥
+			
+3	If P:bin→bin is monotonic, prove (∃x·Px)=P⊤
+
+			⊤		definition of monotonic.
+		≡	∀x,y:bin·(x⇒y ⇒ Px⇒Py)		specialize.
+		⇒	(⊥⇒⊤ ⇒ P⊥⇒P⊤)		base and identity laws.
+		≡	P⊥⇒P⊤		law of inclusion.
+		≡	(P⊥∨P⊤)=P⊤		quantifier law; one-element domain.
+		≡	((∃x:⊥·Px)v(∃x:⊤·Px))=P⊤		quantifier law; union domain.
+		≡	(∃x:bin·Px)=P⊤
+		
+〈〉≤≥¢→×⊤⊥∀∃·≠≡∧∨¬⇒⇐
