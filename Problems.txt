@@ -902,4 +902,36 @@ T0, 2015. ⊤⊥
 		≡	((∃x:⊥·Px)v(∃x:⊤·Px))=P⊤		quantifier law; union domain.
 		≡	(∃x:bin·Px)=P⊤
 		
-〈〉≤≥¢→×⊤⊥∀∃·≠≡∧∨¬⇒⇐
+		
+10.3 - Program Theory
+
+99	Prove or disprove
+	
+	(a)	R.if b then P else Q fi ≡ if b then R.P else R.Q fi
+	(b)	if b then P⇒Q else R⇒S fi ≡ if b then P else R fi ⇒ if b then Q else S fi
+	(c)	if b then P.Q else R.S fi ≡ if b then P else R fi.if b then Q else S fi
+	
+116	Let a,b,c be integer variables. Simplify:
+	
+	(a)	b:=a-b. b:=a-b
+	(b)	a:=a+b. b:=a-b. a:=a-b
+	(c)	c:=a-b-c. b:=a-b-c. a:=a-b-c. c:=a+b+c
+	
+120	In natural variables s and n, prove
+	P⇐if n=0 then ok else n:=n-1. s:=s+2^n -n. t:=t+1. P fi
+	where P = s'=s+2^n -n×(n-1)/2-1 ∧ n'=0 ∧ t'=t+n
+
+125	(square) Let s and n be natural variables. Find a specification P such that both the following hold:
+	s'=n^2 ⇐ s:=n.P
+	P ⇐ if n=0 then ok else n:=n-1. s:=s+n+n. P fi
+	This program squares using only addition, subtraction and test for zero.
+
+133	Let n and r be natural variables in the refinement
+	P ⇐ if n=1 then r:=0 else n:=div n2. P. r:=r+1 fi
+	Suppose the operations div and + each take time 1 and all else is free (even the call is free).
+	Insert appropriate time increments, and fine an appropriate P to express the execution time in terms of
+	(a)	the initial values of the memory variables. Prove the refinement for your choice of P.
+	(b) the final values of the memory variables. Prove the refinement for your choice of P.
+	
+	
+〈〉≤≥¢→×⊤⊥∀∃·≠≡∧∨¬⇒⇐σ
