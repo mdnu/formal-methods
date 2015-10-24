@@ -26,17 +26,18 @@ class binaryExponentiation {
 }
 
 /* Proof:
-Refinement 0:
+	Refinements:
+
 	y'=2^x	<=	if x=0 then (x=0 ⇒ y'=2^x) else (x>0 ⇒ y'=2^x) fi
-Refinement 1:
 	(x=0 ⇒ y'=2^x)	<=	y:=1 . x:= 3
-Refinement 2:
 	(x>0 ⇒ y'=2^x)	<=	(x>0 ⇒ y'=2^(x-1)).(y'=2*y)
-	(x>0 ⇒ y'=2^(x-1))	<=	(y:=2*y).(x:=5)
+	(x>0 ⇒ y'=2^(x-1))	<=	(x'=x-1).y'=2^x
+	y'=2*y	<=	(y:=2*y).(x:=5)
 	(x'=x-1)	<=	(x:=x-1).(y:=7) */
 	
 /* Compiler view:
-
+	(translating the above proof into its compilation):
+	
 	A	<=	if x=0 then B else C fi
 	B	<=	y:=1 . x:=3
 	C	<=	D.E
@@ -44,6 +45,5 @@ Refinement 2:
 	E	<=	y:=2*y . x:=5
 	F	<=	x:=x-1 . y:=7 */
 	
-/* Macro-expansion: A <= if x=0 then y:=1 . x:=3 else x:=x-1 . y:=7 . A . y:=2*y . x:=5 fi */
-	
-
+/* Macro-expansion: A <= if x=0 then y:=1 . x:=3 else x:=x-1 . y:=7 . A . y:=2*y . x:=5 fi 
+	(then translate this into high-level code. In our case, Java). */
