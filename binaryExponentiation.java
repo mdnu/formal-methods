@@ -44,6 +44,6 @@ Refinement 2:
 	E	<=	y:=2*y . x:=5
 	F	<=	x:=x-1 . y:=7 */
 	
-/* Micro-expansion: A <= if x=0 then y:=1 . x:=3 else x:=x-1 . y:=7 . A . y:=2*y . x:=5 fi */
+/* Macro-expansion: A <= if x=0 then y:=1 . x:=3 else x:=x-1 . y:=7 . A . y:=2*y . x:=5 fi */
 	
 
