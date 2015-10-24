@@ -16,4 +16,6 @@ What are Formal Methods?
 	Formal methods are best described as the application of a fairly broad variety of theoretical 
 	computer science fundamentals, in particular logic calculi, formal languages, automata theory, 
 	and program semantics, but also type systems and algebraic data types to problems in software and
-	hardware specification and verification.[3]" - [wki.pe/Formal_Methods](http://wki.pe/Formal_methods)
+	hardware specification and verification.[3]" 
+
+- [wki.pe/Formal_Methods](http://wki.pe/Formal_methods)
