@@ -908,14 +908,79 @@ T0, 2015. ⊤⊥
 99	Prove or disprove
 	
 	(a)	R.if b then P else Q fi ≡ if b then R.P else R.Q fi
+	
+			R.if b then P else Q fi
+		≡	R.(b∧P)∨(¬b∧Q)
+		≡	(R.b∧R.P)∨(R.¬b∧R.Q)
+		≡	(b∧R.P)∨(¬b∧R.Q)
+		≡	if b then R.P else R.Q fi
+	
 	(b)	if b then P⇒Q else R⇒S fi ≡ if b then P else R fi ⇒ if b then Q else S fi
+	
+			if b then P⇒Q else R⇒S fi
+		≡	(b⇒P⇒Q)∨(¬b⇒R⇒S)
+		≡	((b∧P)⇒Q)∧((¬b∧R)⇒S)
+		≡	(¬(b∧P)∨Q)∧(¬(¬b∧R)∨S)
+		≡	((¬(b∧P)∨Q)∧(¬(¬b∧R)))∨((¬(b∧P)∨Q)∧S)
+		≡	¬(b∧P)∧(¬(¬b∧R)) ∨ (¬(¬b∧R))∧Q ∨ ¬(b∧P)∧S ∨ Q∧S
+		≡	¬(b∧P)∧(¬(¬b∧R)) ∨ (b∧Q)∨(¬R∧Q) ∨ (¬b∧S) ∨ ¬P∧S ∨ Q∧S
+		≡	¬(b∧P)∧(¬(¬b∧R)) ∨ (b∧Q) ∨ (¬b∧S) ∨ (¬R∧Q)∨(¬P∧S)∨(Q∧S)
+		≡	¬(b∧P)∧(¬(¬b∧R)) ∨ (b∧Q) ∨ (¬b∧S) ∨ (¬R∧Q)∨(¬P∧S)∨(Q∧S)
+		⇐	¬(b∧P)∧(¬(¬b∧R)) ∨ (b∧Q) ∨ (¬b∧S)
+		≡	if b then P else R fi ⇒ if b then Q else S fi
+		
 	(c)	if b then P.Q else R.S fi ≡ if b then P else R fi.if b then Q else S fi
+	
+			if b then P else R fi.if b then Q else S fi
+		≡	(b∧P)∨(¬b∧R).(b∧Q)∨(¬b∧S)
+		≡	(b∧P).(b∧Q)∨(b∧P).(¬b∧S)∨(¬b∧R).(b∧Q)∨(¬b∧R).(¬b∧S)
+		≡	(b∧P.Q)∨(b∧P).(¬b∧S)∨(¬b∧R).(b∧Q)∨(¬b∧R.s)
+		≡	(b∧P.Q)∨(¬b∧R.s)
+		≡	if b then P.Q else R.S fi
 	
 116	Let a,b,c be integer variables. Simplify:
 	
 	(a)	b:=a-b. b:=a-b
+	
+			b:=a-b. b:=a-b
+		≡	b'=a-b ∧ a'=a . b'=a-b ∧ a'=a
+		≡	∃b'',a'':int·(b''=a-b ∧ a''=a) ∧ (b'=a''-b'' ∧ a'=a'')
+		≡	∃b'',a'':int·(b''=a-b ∧ a''=a) ∧ (b''=a''-b' ∧ a''=a')
+		≡	(a'-b = a-b) ∧ a'=a
+		≡	a-b = a-b
+		≡	b'=b ∧ a'=a
+	
 	(b)	a:=a+b. b:=a-b. a:=a-b
+	
+			a:=a+b. b:=a-b. a:=a-b
+		≡	a'=a+b ∧ b'=b . b'=a-b ∧ a'=a . a'=a-b ∧ b'=b
+		≡	(∃b'',a'':int·(a''=a+b ∧ b''=b) ∧ (b'=a''-b'' ∧ a'=a'')). a'=a-b ∧ b'=b
+		≡	(∃b'',a'':int·(a''=a+b ∧ b''=b) ∧ (b''=a''-b' ∧ a''=a')). a'=a-b ∧ b'=b
+		≡	(∃b'',a'':int·(a''=a+b ∧ b''=b) ∧ (b''=a''-b' ∧ a''=a')). a'=a-b ∧ b'=b
+		≡	(a'=a+b ∧ a'-b'=b). a'=a-b ∧ b'=b
+		≡	(a'=a+b ∧ a'=b+b'). a'=a-b ∧ b'=b
+		≡	(a'=a+b ∧ a'=b+b'). a'=a-b ∧ b'=b
+		≡	(a=b'). a'=a-b ∧ b'=b
+		≡	(b'=a)∧(a'=a). a'=a-b ∧ b'=b
+		≡	∃b'',a'':int·b''=a ∧ a''=a ∧ a'=a''-b'' ∧ b'=b''
+		≡	∃b'',a'':int·b''=a ∧ a=a'' ∧ a''=a'+b'' ∧ b''=b'
+		≡	b'=a'+b'
+		≡	a'=0 ∧ b'=b
+		
 	(c)	c:=a-b-c. b:=a-b-c. a:=a-b-c. c:=a+b+c
+	
+			c:=a-b-c. b:=a-b-c. a:=a-b-c. c:=a+b+c
+		≡	a'=a ∧ b'=b ∧ c'=a-b-c. a'=a ∧ b'=a-b-c ∧ c'=c . a'=a-b-c ∧ b'=b ∧ c'=c . a'=a ∧ b'=b ∧ c'=a+b+c
+		≡	(∃c'',b'',a'':int·(a''=a ∧ b''=b ∧ c''=a-b-c)∧(a'=a'' ∧ b'=a''-b''-c'' ∧ c'=c'')). a'=a-b-c ∧ b'=b ∧ c'=c . a'=a ∧ b'=b ∧ c'=a+b+c
+		≡	(∃c'',b'',a'':int·(a=a'' ∧ b''=b ∧ c''=a-b-c)∧(a''=a' ∧ b'=a''-b''-c'' ∧ c''=c')). a'=a-b-c ∧ b'=b ∧ c'=c . a'=a ∧ b'=b ∧ c'=a+b+c
+		≡	(a'=a ∧ b'=c ∧ c'=c).a'=a-b-c ∧ b'=b ∧ c'=c . a'=a ∧ b'=b ∧ c'=a+b+c
+		≡	(∃c'',b'',a'':int·(a''=a ∧ b''=c ∧ c''=c)∧(a'=a''-b''-c'' ∧ b'=b'' ∧ c'=c'')). a'=a ∧ b'=b ∧ c'=a+b+c
+		≡	(∃c'',b'',a'':int·(a''=a ∧ b''=c ∧ c''=c)∧(a''=a'+b''+c'' ∧ b''=b' ∧ c''=c')). a'=a ∧ b'=b ∧ c'=a+b+c
+		≡	(a'=a-2c ∧ b'=c ∧ c'=c). a'=a ∧ b'=b ∧ c'=a+b+c
+		≡	(∃c'',b'',a'':int·(a''=a-2c ∧ b''=c ∧ c''=c)∧ (a'=a'' ∧ b'=b'' ∧ c'=a''+b''+c''))
+		≡	(∃c'',b'',a'':int·(a''=a-2c ∧ b''=c ∧ c''=c)∧ (a''=a' ∧ b''=b' ∧ c''=c'-a''-b''))
+		≡	a'=a-2c ∧ b'=c ∧ c'=c+a'+b'
+		≡	a'=a-2c ∧ b'=c ∧ c'=a
 	
 120	In natural variables s and n, prove
 	P⇐if n=0 then ok else n:=n-1. s:=s+2^n -n. t:=t+1. P fi
@@ -935,3 +1000,5 @@ T0, 2015. ⊤⊥
 	
 	
 〈〉≤≥¢→×⊤⊥∀∃·≠≡∧∨¬⇒⇐σ
+
+158, 161, 215, 263, 208a.
