@@ -985,20 +985,36 @@ T0, 2015. ⊤⊥
 120	In natural variables s and n, prove
 	P⇐if n=0 then ok else n:=n-1. s:=s+2^n -n. t:=t+1. P fi
 	where P = s'=s+2^n -n×(n-1)/2-1 ∧ n'=0 ∧ t'=t+n
-
+	
+			if n=0 then ok else n:=n-1. s:=s+2^n -n. t:=t+1. P fi		replace ok; substitution law.
+		≡	if n=0 then n'=n else n:=n-1. s:=s+2^n -n. t:=t+1. P fi		use context n=0 to modify the then-part, substitution law.
+		≡	if n=0 then n≥0 ⇒ n'=0 else s:=s+2^(n-1) -(n-1). t:=t+1. (s'=s+2^n -n×(n-1)/2-1 ∧ n'=0 ∧ t'=t+n) fi
+		≡	if n=0 then n≥0 ⇒ n'=0 else s'=s+2^(n-1) -(n-1). t'=t+1. (s'=s+2^n -n×(n-1)/2-1 ∧ n'=0 ∧ t'=t+n) fi
+		≡	if n=0 then n≥0 ⇒ n'=0 else s'=s+2^(n-1) -(n-1) ∧ t'=t+1 . (s'=s+2^n -n×(n-1)/2-1 ∧ n'=0 ∧ t'=t+n) fi
+		≡	if n=0 then n≥0 ⇒ n'=0 else s''=s+2^(n-1) -(n-1) ∧ t''=t+1 ∧ (s'=s''+2^n'' -n''×(n''-1)/2-1 ∧ n'=0 ∧ t'=t''+n'') fi
+		≡	if n=0 then n≥0 ⇒ n'=0 else (s'=s+2^(n-1) -(n-1)+2^n'' -n''×(n''-1)/2-1 ∧ n'=0 ∧ t'=t+1+n'') fi			context.
+		≡	if n=0 then n≥0 ⇒ n'=0 else (s'=s+2^(0) -(0)+2^0 -0×(-1)/2-1 ∧ n'=0 ∧ t'=t+1) fi
+		≡	if n=0 then n≥0 ⇒ n'=0 else (s'=s+1 ∧ n'=0 ∧ t'=t+1) fi
+		??
+		
 125	(square) Let s and n be natural variables. Find a specification P such that both the following hold:
 	s'=n^2 ⇐ s:=n.P
 	P ⇐ if n=0 then ok else n:=n-1. s:=s+n+n. P fi
 	This program squares using only addition, subtraction and test for zero.
+	
+		Let P = (n'=n*Σ[1;...n+1])
 
 133	Let n and r be natural variables in the refinement
 	P ⇐ if n=1 then r:=0 else n:=div n2. P. r:=r+1 fi
 	Suppose the operations div and + each take time 1 and all else is free (even the call is free).
-	Insert appropriate time increments, and fine an appropriate P to express the execution time in terms of
+	Insert appropriate time increments, and find an appropriate P to express the execution time in terms of
 	(a)	the initial values of the memory variables. Prove the refinement for your choice of P.
 	(b) the final values of the memory variables. Prove the refinement for your choice of P.
 	
+		Inserting appropriate time increments:
+		P ⇐ if n=1 then r:=0 else n:=div n2. t:=t+1. P. r:=r+1 fi
 	
-〈〉≤≥¢→×⊤⊥∀∃·≠≡∧∨¬⇒⇐σ
+	
+〈〉≤≥¢→×⊤⊥∀∃·≠≡∧∨¬⇒⇐σΣ
 
 158, 161, 215, 263, 208a.
